@@ -15,18 +15,18 @@ struct ProfileView: View {
     var body: some View {
         VStack {
             ProfileUserView(post: post)
-            ScrollView {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))], spacing: 10) {
+            ScrollView(.vertical) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: UIScreen.main.bounds.width / 3 - 20))], spacing: 10) {
                     ForEach(images, id: \.self) { imageName in
                         Image(imageName)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: 100, height: 100)
+                            .frame(width: 120, height: 120)
                             .clipped()
                     
                     }
                 }
-                .padding(.horizontal, 0)
+                .padding(.horizontal, 0.0)
             }
             Spacer()
         }
