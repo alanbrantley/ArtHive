@@ -12,10 +12,6 @@ struct ContentView: View {
     @State private var selection: Tab = .photos
     var post: Post
     
-//    init(post: Post) {
-//           self.post = post
-//       }
-    
     enum Tab {
         case photos
         case profile
