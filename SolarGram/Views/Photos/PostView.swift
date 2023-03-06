@@ -7,11 +7,20 @@
 
 import SwiftUI
 
+// Check if the current platform is macOS
+#if os(macOS)
+    // Import the AppKit framework
+    import AppKit
+    // Set the screenWidth variable to the width of the main screen
+    var screenWidth = NSScreen.main?.frame.width ?? 0
+#else
+    // Set the screenWidth variable to the width of the main screen using the UIScreen class
+    var screenWidth = UIScreen.main.bounds.size.width
+#endif
+
+
 // A view that displays all the elements of a single user post
 struct PostView: View {
-  
-    // Get the screen width
-    var screenWidth = UIScreen.main.bounds.size.width
     
     // A state variable that stores if the post is loved
     @State var isLoved: Bool = true
