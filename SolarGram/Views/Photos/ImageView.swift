@@ -7,26 +7,32 @@
 
 import SwiftUI
 
-
+// View that displays an image with an aspect ratio of 1:1 (square)
 struct ImageView: View {
     
-    var screenWidth = UIScreen.main.bounds.size.width
+    // The Post associated with this image view
     var post: Post
     
+    // The name of the image file to be displayed, constructed from the post's id and name
+    var imageName: String {
+        "\(post.id)_\(post.name)"
+    }
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            Image("\(post.id)_\(post.name)")
-                .resizable()
-                .scaledToFill()
-                .frame(width: screenWidth, height: screenWidth)
-                .clipped()
-            Text(post.name)
-                .font(.footnote)
-                .multilineTextAlignment(.leading)
-                .padding(.leading, 10)
-        }
+        
+        // A rectangle with an aspect ratio of 1:1, which acts as a placeholder for the image
+        Rectangle()
+            .aspectRatio(1, contentMode: .fit)
+            .overlay(
+                // The image to be displayed, which is a resizable image with an aspect ratio that fills the rectangle
+                Image(imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .clipped()
+            )
     }
 }
+
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {

@@ -7,27 +7,46 @@
 
 import SwiftUI
 
+// A prfile view view that displays the user's picture, name, and posted images
 struct ProfileView: View {
-    let images = ["1_biodome", "4_citywalk", "5_tram", "9_treehouse", "10_mansion"]
     
+    // An array that holds the main user's posted images
+    var images: [Post] = [
+        Post(id: 1, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"),
+        Post(id: 4, name: "citywalk", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"),
+        Post(id: 5, name: "tram", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"),
+        Post(id: 9, name: "treehouse", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"),
+        Post(id: 10, name: "mansion", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"),
+    ]
+    
+    // The post of the main user
     var post: Post
+    
+    // The number of columns for the LazyVGrid
+    let numColumns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
     
     var body: some View {
         VStack {
+            // The view that displays the main user's profile
             ProfileUserView(post: post)
+            
+            // The ScrollView that displays the main user's posted images
             ScrollView(.vertical) {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: UIScreen.main.bounds.width / 3 - 20))], spacing: 10) {
-                    ForEach(images, id: \.self) { imageName in
-                        Image(imageName)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 120, height: 120)
+                LazyVGrid(columns: numColumns, spacing: 10) {
+                    ForEach(images, id: \.self) { post in
+                        // The ImageView that displays the posted image
+                        ImageView(post: post)
                             .clipped()
-                    
                     }
                 }
                 .padding(.horizontal, 0.0)
             }
+            
+            // Spacer to push the content to the top of the screen
             Spacer()
         }
     }

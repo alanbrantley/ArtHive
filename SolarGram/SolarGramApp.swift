@@ -7,11 +7,17 @@
 
 import SwiftUI
 
+// Define the SolarGramApp struct as the entry point of the application
 @main
 struct SolarGramApp: App {
-    let post = Post(id: 1, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley")
     
+    // Create a Post object with the given properties
+    let post = Post(id: 1, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley")
+
+    // Define the body of the application
     var body: some Scene {
+        
+        // Create a window group with the ContentView as the root view
         WindowGroup {
             ContentView(post: post)
         }

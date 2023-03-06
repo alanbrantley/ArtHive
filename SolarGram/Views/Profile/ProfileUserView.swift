@@ -7,18 +7,22 @@
 
 import SwiftUI
 
+// A view that displays a user's profile image and name for the ProfileView
 struct ProfileUserView: View {
     
+    // variable to Model
     var post: Post
     
     var body: some View {
         VStack {
+            // Profile Image
             Image(post.profileImageName)
                 .resizable()
                 .frame(width: 60, height: 60)
                 .clipShape(Circle())
                 .padding(.top)
             
+            // User Name
             Text(post.userName)
                 .font(.title)
                 

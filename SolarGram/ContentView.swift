@@ -7,11 +7,16 @@
 
 import SwiftUI
 
+// The main view of the app
 struct ContentView: View {
     
+    // Keeps track of the selected tab
     @State private var selection: Tab = .photos
+    
+    // A Post object to be passed to the ProfileView
     var post: Post
     
+    // An enumeration of the two possible tabs
     enum Tab {
         case photos
         case profile
@@ -19,25 +24,28 @@ struct ContentView: View {
     
     var body: some View {
         
-        // bind selection variable to the body
+        // A TabView that displays the two tabs
         TabView(selection: $selection) {
             
-            // Featured State
+            // The first tab, PhotosView
             PhotosView()
                 .tabItem {
+                    // The label for the PhotosView tab
                    Label("Photos", systemImage: "photo.stack.fill")
                }
                .tag(Tab.photos)
-
-            // Default State
+            
+            // The second tab, ProfileView
             ProfileView(post: post)
                 .tabItem {
+                    // The label for the ProfileView tab
                    Label("Profile", systemImage: "person.circle.fill")
                }
                .tag(Tab.profile)
         }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

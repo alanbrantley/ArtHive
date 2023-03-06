@@ -7,28 +7,25 @@
 
 import SwiftUI
 
-//struct User: Identifiable, Codable {
-//    var id: Int
-//    var userName: String
-//    var profileImageName: String
-//}
-
+// A view that displays a user's profile image and name for a photo post
 struct PhotosUserView: View {
     
-//    var user: User
+    // The photo post to display user information for
     var post: Post
     
     var body: some View {
         HStack {
+            // Display the user's profile image in a circle with dimensions 30x30
             Image("\(post.profileImageName)")
                 .resizable()
                 .frame(width: 30, height: 30)
                 .clipShape(Circle())
+            // Display the user's name in a headline font
             Text(post.userName)
                 .font(.headline)
+            // Add a spacer to push the user information to the left and the post information to the right
             Spacer()
         }
-        
     }
 }
 
