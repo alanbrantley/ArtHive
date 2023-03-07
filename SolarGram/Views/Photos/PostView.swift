@@ -50,6 +50,14 @@ struct PostView: View {
             LoveButton(isSet: $isLoved)
                 .padding(.leading, 10)
                 .padding(.bottom, 5)
+            
+            #if os(macOS)
+                Spacer()
+                Divider()
+            #else
+                
+            #endif
+            
         }
     }
 }
