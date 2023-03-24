@@ -18,6 +18,8 @@ struct ImageView: View {
         "\(post.id)_\(post.name)"
     }
     
+    @EnvironmentObject var viewModel: ViewModel
+
     var body: some View {
         
         // A rectangle with an aspect ratio of 1:1, which acts as a placeholder for the image
@@ -28,8 +30,7 @@ struct ImageView: View {
                 Image(imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .clipped()
-            )
+                    .clipped())
     }
 }
 
@@ -38,5 +39,6 @@ struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
         let test = Post(id: 1, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley")
         ImageView(post: test)
+            .environmentObject(ViewModel())
     }
 }

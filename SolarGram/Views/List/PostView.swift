@@ -11,30 +11,30 @@ import SwiftUI
 #if os(macOS)
     // Import the AppKit framework
     import AppKit
-    // Set the screenWidth variable to the width of the main screen
-    var screenWidth = NSScreen.main?.frame.width ?? 0
 #else
-    // Set the screenWidth variable to the width of the main screen using the UIScreen class
-    var screenWidth = UIScreen.main.bounds.size.width
 #endif
 
 
 // A view that displays all the elements of a single user post
 struct PostView: View {
     
-    // A state variable that stores if the post is loved
-    @State var isLoved: Bool = true
-    
     // The post to display
     var post: Post
+    
+    // A state variable that stores if the post is loved
+    @EnvironmentObject var viewModel: ViewModel
+    
+    // The name of the image file to be displayed, constructed from the post's id and name
+    var imageName: String {
+        "\(post.id)_\(post.name)"
+    }
     
     var body: some View {
        
         VStack(alignment: .leading) {
+            
             // Show the user's photos
-            PhotosUserView(post: post)
-                .frame(width: screenWidth)
-                .padding(.leading, 10)
+            UserView(post: post)
                 .padding(.top, 5)
             
             // Show the image for the post
@@ -43,12 +43,12 @@ struct PostView: View {
             // Show the post name
             Text(post.name)
                 .font(.footnote)
-                .padding(.leading, 10)
+//                .padding(.leading, 10)
                 .padding(.bottom, 10)
             
             // Show a love button that toggles the isLoved state variable
-            LoveButton(isSet: $isLoved)
-                .padding(.leading, 10)
+            LoveButton(post: post)
+//                .padding(.leading, 10)
                 .padding(.bottom, 5)
             
             #if os(macOS)
@@ -65,5 +65,6 @@ struct PostView: View {
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
         PostView(post: Post(id: 1, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"))
+            . environmentObject(ViewModel())
     }
 }

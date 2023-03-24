@@ -8,10 +8,12 @@
 import SwiftUI
 
 // A view that displays a user's profile image and name for a photo post
-struct PhotosUserView: View {
+struct UserView: View {
     
     // The photo post to display user information for
     var post: Post
+    
+    @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
         HStack {
@@ -29,9 +31,10 @@ struct PhotosUserView: View {
     }
 }
 
-struct PhotosUserView_Previews: PreviewProvider {
+struct UserView_Previews: PreviewProvider {
     static var previews: some View {
         let test = Post(id: 01, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley")
-        PhotosUserView(post: test)
+        UserView(post: test)
+            .environmentObject(ViewModel())
     }
 }

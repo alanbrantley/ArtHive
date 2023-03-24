@@ -1,17 +1,14 @@
 //
-//  PhotosView.swift
+//  PostModel.swift
 //  SolarGram
 //
 //  Created by Alan Brantley on 3/3/23.
 //
+import Foundation
 
-import SwiftUI
-
-// A view tha displays a list of photo posts
-struct PhotosView: View {
+struct PostsManager {
     
-    // An array that holds all posts in the feed
-    var feed: [Post] = [
+    var posts: [Post] = [
         Post(id: 1, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"),
         Post(id: 2, name: "home", userName: "Jasmine Peters", profileImageName: "03_JasminePeters"),
         Post(id: 3, name: "control", userName: "Samantha Johnson", profileImageName: "05_SamanthaJohnson"),
@@ -24,22 +21,34 @@ struct PhotosView: View {
         Post(id: 10, name: "mansion", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"),
     ]
     
-    var body: some View {
-        imageList
-    }
-    
-    // A view that displays a list of posts
-    var imageList: some View {
-        List(feed) { post in
-            PostView(post: post)
+    // Mutating func makes some change
+    mutating func toggleFavorite(_ post: Post) {
+        
+        let postIndex = posts.firstIndex { p in
+            p.id == post.id
         }
-        .listStyle(PlainListStyle())
+        
+        guard let actualIndex = postIndex else { return }
+        posts[actualIndex].isFavorite.toggle()
+        
     }
+
+}
+
+// A model representing a post in the app
+struct Post: Identifiable, Hashable {
+    // The ID of the post
+    var id: Int
+    // The name of the post
+    var name: String
+    // The user name associated with the post
+    var userName: String
+    // The file name of the profile image associated with the post
+    var profileImageName: String
+    
+    var isFavorite: Bool = false
 }
 
 
-struct PhotosView_Previews: PreviewProvider {
-    static var previews: some View {
-        PhotosView()
-    }
-}
+
+

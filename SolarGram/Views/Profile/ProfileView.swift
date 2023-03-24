@@ -16,7 +16,7 @@ struct ProfileView: View {
         Post(id: 4, name: "citywalk", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"),
         Post(id: 5, name: "tram", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"),
         Post(id: 9, name: "treehouse", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"),
-        Post(id: 10, name: "mansion", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"),
+        Post(id: 10, name: "mansion", userName: "Alan Brantley", profileImageName: "01_AlanBrantley")
     ]
     
     // The post of the main user

@@ -13,6 +13,8 @@ struct ContentView: View {
     // Keeps track of the selected tab
     @State private var selection: Tab = .photos
     
+    @State private var viewModel: ViewModel = ViewModel()
+    
     // A Post object to be passed to the ProfileView
     var post: Post
     
@@ -28,7 +30,8 @@ struct ContentView: View {
         TabView(selection: $selection) {
             
             // The first tab, PhotosView
-            PhotosView()
+            ListView()
+                .environmentObject(viewModel)
                 .tabItem {
                     // The label for the PhotosView tab
                    Label("Photos", systemImage: "photo.stack.fill")
