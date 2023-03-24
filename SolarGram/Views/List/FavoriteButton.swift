@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoveButton: View {
+struct FavoriteButton: View {
     
     var post: Post
     @EnvironmentObject var viewModel: ViewModel
@@ -28,10 +28,10 @@ struct LoveButton: View {
     }
 }
 
-struct LoveButton_Previews: PreviewProvider {
+struct FAvoriteButton_Previews: PreviewProvider {
     static var previews: some View {
         let test = Post(id: 1, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley")
-        LoveButton(post: test)
+        FavoriteButton(post: test)
             .environmentObject(ViewModel())
         
     }

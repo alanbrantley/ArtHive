@@ -15,6 +15,11 @@ struct UserView: View {
     
     @EnvironmentObject var viewModel: ViewModel
     
+    // The name of the image file to be displayed, constructed from the post's id and name
+    var imageName: String {
+        "\(post.profileImageName)"
+    }
+    
     var body: some View {
         HStack {
             // Display the user's profile image in a circle with dimensions 30x30

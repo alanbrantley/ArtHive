@@ -20,6 +20,7 @@ struct PostsManager {
         Post(id: 9, name: "treehouse", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"),
         Post(id: 10, name: "mansion", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"),
     ]
+
     
     // Mutating func makes some change
     mutating func toggleFavorite(_ post: Post) {

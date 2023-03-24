@@ -10,14 +10,8 @@ import SwiftUI
 // A prfile view view that displays the user's picture, name, and posted images
 struct ProfileView: View {
     
-    // An array that holds the main user's posted images
-    var images: [Post] = [
-        Post(id: 1, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"),
-        Post(id: 4, name: "citywalk", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"),
-        Post(id: 5, name: "tram", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"),
-        Post(id: 9, name: "treehouse", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"),
-        Post(id: 10, name: "mansion", userName: "Alan Brantley", profileImageName: "01_AlanBrantley")
-    ]
+    // View model for the ProfileView
+    @StateObject var viewModel = ViewModel()
     
     // The post of the main user
     var post: Post
@@ -37,7 +31,7 @@ struct ProfileView: View {
             // The ScrollView that displays the main user's posted images
             ScrollView(.vertical) {
                 LazyVGrid(columns: numColumns, spacing: 10) {
-                    ForEach(images, id: \.self) { post in
+                    ForEach(viewModel.solarGramPosts.filter { $0.userName == "Alan Brantley" }) { post in
                         // The ImageView that displays the posted image
                         ImageView(post: post)
                             .clipped()
@@ -56,5 +50,6 @@ struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         let test = Post(id: 01, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley")
         ProfileView(post: test)
+            .environmentObject(ViewModel())
     }
 }

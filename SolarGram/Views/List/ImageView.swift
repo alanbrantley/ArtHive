@@ -17,8 +17,6 @@ struct ImageView: View {
     var imageName: String {
         "\(post.id)_\(post.name)"
     }
-    
-    @EnvironmentObject var viewModel: ViewModel
 
     var body: some View {
         
@@ -26,19 +24,19 @@ struct ImageView: View {
         Rectangle()
             .aspectRatio(1, contentMode: .fit)
             .overlay(
-                // The image to be displayed, which is a resizable image with an aspect ratio that fills the rectangle
-                Image(imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .clipped())
+                
+        // The image to be displayed, which is a resizable image with an aspect ratio that fills the rectangle
+        Image(imageName)
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .clipped())
     }
 }
 
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
-        let test = Post(id: 1, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley")
+        let test = Post(id: 1, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley", isFavorite: false)
         ImageView(post: test)
-            .environmentObject(ViewModel())
     }
 }

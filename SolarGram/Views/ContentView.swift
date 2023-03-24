@@ -40,6 +40,7 @@ struct ContentView: View {
             
             // The second tab, ProfileView
             ProfileView(post: post)
+                .environmentObject(viewModel)
                 .tabItem {
                     // The label for the ProfileView tab
                    Label("Profile", systemImage: "person.circle.fill")
@@ -52,7 +53,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let test = Post(id: 01, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley")
+        let test = Post(id: 01, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley", isFavorite: false)
         ContentView(post: test)
     }
 }

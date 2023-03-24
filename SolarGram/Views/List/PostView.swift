@@ -24,11 +24,6 @@ struct PostView: View {
     // A state variable that stores if the post is loved
     @EnvironmentObject var viewModel: ViewModel
     
-    // The name of the image file to be displayed, constructed from the post's id and name
-    var imageName: String {
-        "\(post.id)_\(post.name)"
-    }
-    
     var body: some View {
        
         VStack(alignment: .leading) {
@@ -47,7 +42,7 @@ struct PostView: View {
                 .padding(.bottom, 10)
             
             // Show a love button that toggles the isLoved state variable
-            LoveButton(post: post)
+            FavoriteButton(post: post)
 //                .padding(.leading, 10)
                 .padding(.bottom, 5)
             

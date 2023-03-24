@@ -10,6 +10,7 @@ import SwiftUI
 class ViewModel: ObservableObject {
     
     // MARK -
+    
     @Published private var model: PostsManager = PostsManager()
     
     // MARK - vars that are available to the model
