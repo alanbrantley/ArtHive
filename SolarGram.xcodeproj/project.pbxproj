@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D30D795D29CD478100F431C0 /* SolarGramViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30D795C29CD478100F431C0 /* SolarGramViewModel.swift */; };
 		D38CE28929B1DC9500F56FE9 /* SolarGramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38CE28829B1DC9500F56FE9 /* SolarGramApp.swift */; };
 		D38CE28B29B1DC9500F56FE9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38CE28A29B1DC9500F56FE9 /* ContentView.swift */; };
 		D38CE28D29B1DC9700F56FE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D38CE28C29B1DC9700F56FE9 /* Assets.xcassets */; };
@@ -18,10 +19,11 @@
 		D38CE2A429B2B0B300F56FE9 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38CE2A329B2B0B300F56FE9 /* PostView.swift */; };
 		D38CE2A829B2C5F600F56FE9 /* PhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38CE2A729B2C5F600F56FE9 /* PhotosView.swift */; };
 		D38CE2AD29B2F1C300F56FE9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38CE2AC29B2F1C300F56FE9 /* ProfileView.swift */; };
-		D38CE2B029B2F30600F56FE9 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38CE2AF29B2F30600F56FE9 /* Post.swift */; };
+		D38CE2B029B2F30600F56FE9 /* SolarGramPostsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38CE2AF29B2F30600F56FE9 /* SolarGramPostsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D30D795C29CD478100F431C0 /* SolarGramViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarGramViewModel.swift; sourceTree = "<group>"; };
 		D38CE28529B1DC9500F56FE9 /* SolarGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolarGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38CE28829B1DC9500F56FE9 /* SolarGramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarGramApp.swift; sourceTree = "<group>"; };
 		D38CE28A29B1DC9500F56FE9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,7 +37,7 @@
 		D38CE2A729B2C5F600F56FE9 /* PhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosView.swift; sourceTree = "<group>"; };
 		D38CE2AA29B2D29E00F56FE9 /* Users.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = Users.geojson; sourceTree = "<group>"; };
 		D38CE2AC29B2F1C300F56FE9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		D38CE2AF29B2F30600F56FE9 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		D38CE2AF29B2F30600F56FE9 /* SolarGramPostsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarGramPostsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D30D795B29CD474A00F431C0 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				D30D795C29CD478100F431C0 /* SolarGramViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		D38CE27C29B1DC9500F56FE9 = {
 			isa = PBXGroup;
 			children = (
@@ -69,9 +79,9 @@
 			isa = PBXGroup;
 			children = (
 				D38CE28829B1DC9500F56FE9 /* SolarGramApp.swift */,
-				D38CE28A29B1DC9500F56FE9 /* ContentView.swift */,
 				D38CE29629B29C4B00F56FE9 /* Views */,
-				D38CE2AE29B2F2DE00F56FE9 /* Models */,
+				D30D795B29CD474A00F431C0 /* View Model */,
+				D38CE2AE29B2F2DE00F56FE9 /* Model */,
 				D38CE2A929B2D26E00F56FE9 /* Resources */,
 				D38CE28C29B1DC9700F56FE9 /* Assets.xcassets */,
 				D38CE28E29B1DC9700F56FE9 /* Preview Content */,
@@ -90,6 +100,7 @@
 		D38CE29629B29C4B00F56FE9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D38CE28A29B1DC9500F56FE9 /* ContentView.swift */,
 				D38CE29A29B2A17F00F56FE9 /* Profile */,
 				D38CE29929B2A17400F56FE9 /* Photos */,
 			);
@@ -125,12 +136,12 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		D38CE2AE29B2F2DE00F56FE9 /* Models */ = {
+		D38CE2AE29B2F2DE00F56FE9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D38CE2AF29B2F30600F56FE9 /* Post.swift */,
+				D38CE2AF29B2F30600F56FE9 /* SolarGramPostsManager.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D38CE2A429B2B0B300F56FE9 /* PostView.swift in Sources */,
-				D38CE2B029B2F30600F56FE9 /* Post.swift in Sources */,
+				D38CE2B029B2F30600F56FE9 /* SolarGramPostsManager.swift in Sources */,
 				D38CE2AD29B2F1C300F56FE9 /* ProfileView.swift in Sources */,
 				D38CE2A029B2A85A00F56FE9 /* ImageView.swift in Sources */,
 				D38CE28B29B1DC9500F56FE9 /* ContentView.swift in Sources */,
@@ -212,6 +223,7 @@
 				D38CE28929B1DC9500F56FE9 /* SolarGramApp.swift in Sources */,
 				D38CE2A229B2AEF600F56FE9 /* LoveButton.swift in Sources */,
 				D38CE29829B29F7C00F56FE9 /* PhotosUserView.swift in Sources */,
+				D30D795D29CD478100F431C0 /* SolarGramViewModel.swift in Sources */,
 				D38CE29C29B2A1B700F56FE9 /* ProfileUserView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
