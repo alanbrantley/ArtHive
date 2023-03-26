@@ -23,13 +23,14 @@ struct UserView: View {
     var body: some View {
         HStack {
             // Display the user's profile image in a circle with dimensions 30x30
-            Image("\(post.profileImageName)")
-                .resizable()
-                .frame(width: 30, height: 30)
+            ImageView(post: post, imageType: "profileImageName")
                 .clipShape(Circle())
+                .frame(width: 32, height: 32)
+            
             // Display the user's name in a headline font
             Text(post.userName)
                 .font(.headline)
+            
             // Add a spacer to push the user information to the left and the post information to the right
             Spacer()
         }

@@ -16,11 +16,9 @@ struct ProfileUserView: View {
     var body: some View {
         VStack {
             // Profile Image
-            Image(post.profileImageName)
-                .resizable()
-                .frame(width: 60, height: 60)
+            ImageView(post: post, imageType: "profileImageName")
                 .clipShape(Circle())
-                .padding(.top)
+                .frame(width: 60, height: 60)
             
             // User Name
             Text(post.userName)

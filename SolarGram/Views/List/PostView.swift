@@ -33,8 +33,8 @@ struct PostView: View {
                 .padding(.leading, 8)
                 .padding(.top, 5)
             
-            // Show the image for the post
-            ImageView(post: post)
+            // Show the image for the post (use either "name" or "profileImageName")
+            ImageView(post: post, imageType: "name")
             
             // Show the post name
             Text(post.name)

@@ -33,7 +33,7 @@ struct ProfileView: View {
                 LazyVGrid(columns: numColumns, spacing: 10) {
                     ForEach(viewModel.solarGramPosts.filter { $0.userName == "Alan Brantley" }) { post in
                         // The ImageView that displays the posted image
-                        ImageView(post: post)
+                        ImageView(post: post, imageType: "name")
                             .clipped()
                     }
                 }
