@@ -20,9 +20,10 @@ struct ListView: View {
     var imageList: some View {
         List(viewModel.solarGramPosts) { post in
             PostView(post: post)
+                .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
         }
         .listStyle(PlainListStyle())
-        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+        
     }
 }
 

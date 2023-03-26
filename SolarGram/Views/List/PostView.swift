@@ -30,6 +30,7 @@ struct PostView: View {
             
             // Show the user's photos
             UserView(post: post)
+                .padding(.leading, 8)
                 .padding(.top, 5)
             
             // Show the image for the post
@@ -38,12 +39,12 @@ struct PostView: View {
             // Show the post name
             Text(post.name)
                 .font(.footnote)
-//                .padding(.leading, 10)
+                .padding(.leading, 8)
                 .padding(.bottom, 10)
             
             // Show a love button that toggles the isLoved state variable
             FavoriteButton(post: post)
-//                .padding(.leading, 10)
+                .padding(.leading, 8)
                 .padding(.bottom, 5)
             
             #if os(macOS)
