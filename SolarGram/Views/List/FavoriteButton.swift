@@ -28,9 +28,9 @@ struct FavoriteButton: View {
     }
 }
 
-struct FAvoriteButton_Previews: PreviewProvider {
+struct FavoriteButton_Previews: PreviewProvider {
     static var previews: some View {
-        let test = Post(id: 1, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley")
+        let test = Post(id: 1, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley", image: nil)
         FavoriteButton(post: test)
             .environmentObject(ViewModel())
         
