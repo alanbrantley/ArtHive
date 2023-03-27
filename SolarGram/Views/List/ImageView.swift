@@ -9,6 +9,13 @@ import SwiftUI
 // View that displays an image with an aspect ratio of 1:1 (square)
 struct ImageView: View {
     
+//    var image: Image
+    var aspect: CGFloat = 1.0
+    
+//    init(_ image: Image) {
+//            self.image = image
+//    }
+    
     // The Post associated with this image view
     var post: Post
 
@@ -32,17 +39,15 @@ struct ImageView: View {
     }
 
     var body: some View {
-           
-           // A rectangle with an aspect ratio of 1:1, which acts as a placeholder for the image
-           Rectangle()
-               .aspectRatio(1, contentMode: .fit)
-               .overlay(
-                   
-           // The image to be displayed, which is a resizable image with an aspect ratio that fills the rectangle
-           Image(imageName)
-               .resizable()
-               .aspectRatio(contentMode: .fill)
-               .clipped())
+        
+        Rectangle()
+            .aspectRatio(aspect, contentMode: .fit)
+            .overlay {
+                Image(imageName)
+                    .resizable()
+                    .scaledToFill()
+            }
+            .clipped()
        }
 }
 
