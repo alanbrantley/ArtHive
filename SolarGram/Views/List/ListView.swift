@@ -9,7 +9,7 @@ import SwiftUI
 
 // A view tha displays a list of photo posts
 struct ListView: View {
-
+    
     @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
@@ -18,15 +18,23 @@ struct ListView: View {
     
     // A view that displays a list of posts
     var imageList: some View {
-        List(viewModel.solarGramPosts) { post in
-            PostView(post: post)
-                .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+        List {
+            ForEach(viewModel.solarGramPosts) { post in
+                PostView(post: post)
+                    .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+            }
+            .onDelete(perform: deletePost)
         }
         .listStyle(PlainListStyle())
-        
     }
+    
+    private func deletePost(at offsets: IndexSet) {
+       offsets.forEach { index in
+           let post = viewModel.solarGramPosts[index]
+           viewModel.deletePostFrom(post: post)
+       }
+   }
 }
-
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {

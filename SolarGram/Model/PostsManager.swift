@@ -15,7 +15,7 @@ struct PostsManager {
             Post(photoID: "photo4", description: "Citywalk", author:  "Alan", userPhotoID:  "alan"),
             Post(photoID: "photo5", description: "Tram", author:  "Alan", userPhotoID:  "alan"),
             Post(photoID: "photo6", description: "Flowerhouse", author: "David", userPhotoID: "david"),
-            Post(photoID: "photo7", description: "Riverwalk", author: "Issac", userPhotoID: "isac"),
+            Post(photoID: "photo7", description: "Riverwalk", author: "Issac", userPhotoID: "issac"),
             Post(photoID: "photo8", description: "Scpacestation", author: "Jasmine", userPhotoID: "jasmine"),
             Post(photoID: "photo9", description: "Treehouse", author:  "Alan", userPhotoID:  "alan"),
             Post(photoID: "photo10", description: "Mansion", author:  "Alan", userPhotoID:  "alan")
@@ -60,7 +60,7 @@ struct Post: Identifiable, Hashable {
     
     var isFavorite: Bool = false
     
-//    var image: UIImage?       
+    var image: UIImage?
 }
 
 

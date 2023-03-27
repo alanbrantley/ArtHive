@@ -26,25 +26,40 @@ class ViewModel: ObservableObject {
         model.toggleFavorite(post)
     }
     
-    func deletePostFrom() {
-        
-    }
+    func deletePostFrom(post: Post) {
+            model.removePost(post: post)
+        }
     
     func addPostFrom(image: UIImage?) {
-        let newId: Int
-        newId = model.feed.count + 1
-
         // make sure the optional is an actual image
         guard let image = image else { return }
 
+//        // Save the image and get the unique identifier
+//        guard let photoID = saveImageToDocumentsDirectory(image: image) else { return }
+
         // you must do this on the main thread for UI to update properly
         DispatchQueue.main.async {
-
-            // create a new post object, it might look like this, but you can adapt as needed in your project.
-            let newPost = Post(photoID: "photo1", description: "Biodome", author: "Alan", userPhotoID: "alan")
+            // create a new post object
+            let newPost = Post(photoID: "\(image)", description: "A new post!", author: "Alan", userPhotoID: "alan")
 
             // call some function on the model to add the new post to the array of posts
             self.model.addPost(post: newPost)
         }
     }
+    
+//    private func saveImageToDocumentsDirectory(image: UIImage) -> String? {
+//        let fileName = UUID().uuidString
+//        let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(fileName)
+//
+//        if let data = image.jpegData(compressionQuality: 1.0) {
+//            do {
+//                try data.write(to: fileURL)
+//                return fileName
+//            } catch {
+//                print("Error saving image: \(error)")
+//            }
+//        }
+//
+//        return nil
+//    }
 }

@@ -40,11 +40,13 @@ struct PostView: View {
                 .font(.footnote)
                 .padding(.leading, 8)
                 .padding(.bottom, 10)
+                .foregroundColor(.primary)
             
             // Show a love button that toggles the isLoved state variable
             FavoriteButton(post: post)
                 .padding(.leading, 8)
                 .padding(.bottom, 5)
+                
             
             #if os(macOS)
                 Spacer()

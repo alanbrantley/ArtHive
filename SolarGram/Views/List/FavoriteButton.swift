@@ -19,10 +19,10 @@ struct FavoriteButton: View {
         } label: {
             if post.isFavorite {
                 Image(systemName: "heart.fill")
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
             } else {
                 Image(systemName: "heart")
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
             }
         }
     }
