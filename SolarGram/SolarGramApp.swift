@@ -12,7 +12,7 @@ import SwiftUI
 struct SolarGramApp: App {
     
     // Create a Post object with the given properties
-    let post =  Post(photoID: "photo1", description: "Biodome", author: "Alan Brantley", userPhotoID:  "alan")
+    let post =  Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan Brantley", userPhotoID:  "alan")
 
     // Define the body of the application
     var body: some Scene {

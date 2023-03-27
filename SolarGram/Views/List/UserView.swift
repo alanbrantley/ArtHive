@@ -13,6 +13,7 @@ struct UserView: View {
     // The photo post to display user information for
     var post: Post
     
+    // The ViewModel that holds the solarGramPosts array
     @EnvironmentObject var viewModel: ViewModel
     
     // The name of the image file to be displayed, constructed from the post's id and name
@@ -39,7 +40,8 @@ struct UserView: View {
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        let test = Post(photoID: "photo1", description: "Biodome", author: "Alan", userPhotoID:  "alan")
+        let test = Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "alan")
+        // Preview the UserView with a test post
         UserView(post: test)
             .environmentObject(ViewModel())
     }

@@ -22,8 +22,6 @@
 		D38CE2B029B2F30600F56FE9 /* PostsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38CE2AF29B2F30600F56FE9 /* PostsManager.swift */; };
 		D3CCD61229CFFA2600296F04 /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CCD61129CFFA2600296F04 /* CameraPicker.swift */; };
 		D3CCD61429CFFA8900296F04 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CCD61329CFFA8900296F04 /* ImagePicker.swift */; };
-		D3CCD61729D0E9D200296F04 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CCD61629D0E9D200296F04 /* OverlayView.swift */; };
-		D3CCD61929D0F3E800296F04 /* CaptureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CCD61829D0F3E800296F04 /* CaptureButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +42,7 @@
 		D38CE2AF29B2F30600F56FE9 /* PostsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsManager.swift; sourceTree = "<group>"; };
 		D3CCD61129CFFA2600296F04 /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
 		D3CCD61329CFFA8900296F04 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		D3CCD61629D0E9D200296F04 /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
-		D3CCD61829D0F3E800296F04 /* CaptureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureButton.swift; sourceTree = "<group>"; };
+		D3CCD61A29D13C5100296F04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +83,7 @@
 		D38CE28729B1DC9500F56FE9 /* SolarGram */ = {
 			isa = PBXGroup;
 			children = (
+				D3CCD61A29D13C5100296F04 /* Info.plist */,
 				D38CE28829B1DC9500F56FE9 /* SolarGramApp.swift */,
 				D38CE29629B29C4B00F56FE9 /* Views */,
 				D30D795B29CD474A00F431C0 /* View Model */,
@@ -112,8 +110,6 @@
 				D38CE29A29B2A17F00F56FE9 /* Profile */,
 				D38CE29929B2A17400F56FE9 /* List */,
 				D3CCD61529CFFB9E00296F04 /* Pickers */,
-				D3CCD61629D0E9D200296F04 /* OverlayView.swift */,
-				D3CCD61829D0F3E800296F04 /* CaptureButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,7 +231,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3CCD61429CFFA8900296F04 /* ImagePicker.swift in Sources */,
-				D3CCD61929D0F3E800296F04 /* CaptureButton.swift in Sources */,
 				D38CE2A429B2B0B300F56FE9 /* PostView.swift in Sources */,
 				D38CE2B029B2F30600F56FE9 /* PostsManager.swift in Sources */,
 				D38CE2AD29B2F1C300F56FE9 /* ProfileView.swift in Sources */,
@@ -244,7 +239,6 @@
 				D30D796129CD525800F431C0 /* ImageView.swift in Sources */,
 				D38CE2A829B2C5F600F56FE9 /* ListView.swift in Sources */,
 				D38CE28929B1DC9500F56FE9 /* SolarGramApp.swift in Sources */,
-				D3CCD61729D0E9D200296F04 /* OverlayView.swift in Sources */,
 				D38CE2A229B2AEF600F56FE9 /* FavoriteButton.swift in Sources */,
 				D38CE29829B29F7C00F56FE9 /* UserView.swift in Sources */,
 				D30D795D29CD478100F431C0 /* ViewModel.swift in Sources */,
@@ -380,6 +374,8 @@
 				DEVELOPMENT_TEAM = X6L9SBZ5YX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SolarGram/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Uses camera to capture photos";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "uses library to add photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -414,6 +410,8 @@
 				DEVELOPMENT_TEAM = X6L9SBZ5YX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SolarGram/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Uses camera to capture photos";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "uses library to add photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

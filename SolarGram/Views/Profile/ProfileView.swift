@@ -48,7 +48,7 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        let testPost = Post(photoID: "photo1", description: "Biodome", author: "Alan", userPhotoID: "alan")
+        let testPost = Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID: "alan")
         ProfileView(post: testPost)
             .environmentObject(ViewModel())
     }

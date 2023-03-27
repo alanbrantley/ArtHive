@@ -6,35 +6,27 @@
 //
 import SwiftUI
 
-// View that displays an image with an aspect ratio of 1:1 (square)
+// A view that displays an image with an aspect ratio of 1:1 (square)
 struct ImageView: View {
     
-//    var image: Image
+    // The aspect ratio of the image view
     var aspect: CGFloat = 1.0
-    
-//    init(_ image: Image) {
-//            self.image = image
-//    }
     
     // The Post associated with this image view
     var post: Post
 
-    // The image type to be displayed (either 'name' or 'profileImageName')
+    // The image type to be displayed (either 'photoID' or 'userPhotoID')
     var imageType: String
     
-//    var imageName: String {
-//        "\(post.id)_\(post.name)"
-//    }
-
-    // The name of the image file to be displayed, constructed based on the imageType
-    var imageName: String {
+    // The UIImage to be displayed, based on the imageType
+    var uiImage: UIImage? {
         switch imageType {
         case "photoID":
             return post.photoID
         case "userPhotoID":
-            return post.userPhotoID
+            return UIImage(named: post.userPhotoID)
         default:
-            return ""
+            return nil
         }
     }
 
@@ -43,20 +35,24 @@ struct ImageView: View {
         Rectangle()
             .aspectRatio(aspect, contentMode: .fit)
             .overlay {
-                Image(imageName)
-                    .resizable()
-                    .scaledToFill()
+                // If a UIImage exists, display it within the image view
+                if let uiImage = uiImage {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFill()
+                }
             }
             .clipped()
-       }
+    }
 }
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
-        let test = Post(photoID: "photo1", description: "Biodome", author: "Alan", userPhotoID:  "alan")
+        let test = Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "alan")
         
-        // Use either 'name' or 'profileImageName' as the imageType parameter
+        // Use either 'photoID' or 'userPhotoID' as the imageType parameter
         ImageView(post: test, imageType: "photoID")
     }
 }
+
 
