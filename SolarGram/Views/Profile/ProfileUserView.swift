@@ -21,7 +21,7 @@ struct ProfileUserView: View {
                 .frame(width: 60, height: 60)
             
             // User Name
-            Text(post.userName)
+            Text(post.author)
                 .font(.title)
                 
             }
@@ -30,6 +30,6 @@ struct ProfileUserView: View {
 
 struct ProfileUserView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileUserView(post: Post(id: 1, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley"))
+        ProfileUserView(post:  Post(photoID: "photo1", description: "Biodome", author: "Alan Brantley", userPhotoID:  "alan"))
     }
 }

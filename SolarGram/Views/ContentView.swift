@@ -116,7 +116,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let test = Post(id: 01, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley", isFavorite: false)
+        let test = Post(photoID: "photo1", description: "Biodome", author: "Alan Brantley", userPhotoID:  "alan")
         ContentView(post: test)
     }
 }

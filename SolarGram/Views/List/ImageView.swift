@@ -22,10 +22,10 @@ struct ImageView: View {
     // The name of the image file to be displayed, constructed based on the imageType
     var imageName: String {
         switch imageType {
-        case "name":
-            return "\(post.id)_\(post.name)"
-        case "profileImageName":
-            return post.profileImageName
+        case "photoID":
+            return post.photoID
+        case "userPhotoID":
+            return post.userPhotoID
         default:
             return ""
         }
@@ -48,7 +48,7 @@ struct ImageView: View {
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
-        let test = Post(id: 1, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley", image: nil)
+        let test = Post(photoID: "photo1", description: "Biodome", author: "Alan Brantley", userPhotoID:  "alan")
         
         // Use either 'name' or 'profileImageName' as the imageType parameter
         ImageView(post: test, imageType: "name")

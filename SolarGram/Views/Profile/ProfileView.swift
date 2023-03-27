@@ -11,7 +11,7 @@ import SwiftUI
 struct ProfileView: View {
     
     // View model for the ProfileView
-    @StateObject var viewModel = ViewModel()
+    @EnvironmentObject var viewModel: ViewModel
     
     // The post of the main user
     var post: Post
@@ -31,7 +31,7 @@ struct ProfileView: View {
             // The ScrollView that displays the main user's posted images
             ScrollView(.vertical) {
                 LazyVGrid(columns: numColumns, spacing: 10) {
-                    ForEach(viewModel.solarGramPosts.filter { $0.userName == "Alan Brantley" }) { post in
+                    ForEach(viewModel.solarGramPosts.filter { $0.author == "Alan Brantley" }) { post in
                         // The ImageView that displays the posted image
                         ImageView(post: post, imageType: "name")
                             .clipped()
@@ -48,8 +48,10 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        let test = Post(id: 01, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley")
-        ProfileView(post: test)
+        let testPost = Post(photoID: "photo1", description: "Biodome", author: "Alan Brantley", userPhotoID: "alan")
+        ProfileView(post: testPost)
             .environmentObject(ViewModel())
     }
 }
+
+

@@ -21,7 +21,6 @@ struct PostView: View {
     // The post to display
     var post: Post
     
-    // A state variable that stores if the post is loved
     @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
@@ -34,10 +33,10 @@ struct PostView: View {
                 .padding(.top, 5)
             
             // Show the image for the post (use either "name" or "profileImageName")
-            ImageView(post: post, imageType: "name")
+            ImageView(post: post, imageType: "photoID")
             
-            // Show the post name
-            Text(post.name)
+            // Show the post description
+            Text(post.description)
                 .font(.footnote)
                 .padding(.leading, 8)
                 .padding(.bottom, 10)
@@ -60,7 +59,7 @@ struct PostView: View {
 
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
-        PostView(post: Post(id: 1, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley", image: nil))
-            . environmentObject(ViewModel())
+        PostView(post: Post(photoID: "photo1", description: "Biodome", author: "Alan Brantley", userPhotoID:  "alan"))
+            .environmentObject(ViewModel())
     }
 }

@@ -17,18 +17,18 @@ struct UserView: View {
     
     // The name of the image file to be displayed, constructed from the post's id and name
     var imageName: String {
-        "\(post.profileImageName)"
+        "\(post.userPhotoID)"
     }
     
     var body: some View {
         HStack {
             // Display the user's profile image in a circle with dimensions 30x30
-            ImageView(post: post, imageType: "profileImageName")
+            ImageView(post: post, imageType: "userPhotoID")
                 .clipShape(Circle())
                 .frame(width: 32, height: 32)
             
             // Display the user's name in a headline font
-            Text(post.userName)
+            Text(post.author)
                 .font(.headline)
             
             // Add a spacer to push the user information to the left and the post information to the right
@@ -39,7 +39,7 @@ struct UserView: View {
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        let test = Post(id: 01, name: "biodome", userName: "Alan Brantley", profileImageName: "01_AlanBrantley", image: nil)
+        let test = Post(photoID: "photo1", description: "Biodome", author: "Alan Brantley", userPhotoID:  "alan")
         UserView(post: test)
             .environmentObject(ViewModel())
     }

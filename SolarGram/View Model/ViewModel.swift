@@ -36,13 +36,13 @@ class ViewModel: ObservableObject {
 
         // make sure the optional is an actual image
         guard let image = image else { return }
-        
+
         // you must do this on the main thread for UI to update properly
         DispatchQueue.main.async {
-            
+
             // create a new post object, it might look like this, but you can adapt as needed in your project.
-            let newPost = Post(id: newId, name: "Post \(newId)", userName: "Alan Brantley", profileImageName: "01_AlanBrantley", image: image)
-            
+            let newPost = Post(photoID: "photo1", description: "Biodome", author: "Alan", userPhotoID: "alan")
+
             // call some function on the model to add the new post to the array of posts
             self.model.addPost(post: newPost)
         }
