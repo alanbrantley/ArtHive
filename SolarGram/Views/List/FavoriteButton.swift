@@ -31,6 +31,7 @@ struct FavoriteButton: View {
                     .foregroundColor(.primary)
             }
         }
+        .buttonStyle(.plain)
     }
 }
 
