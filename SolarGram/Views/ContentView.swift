@@ -4,24 +4,23 @@
 //
 //  Created by Alan Brantley on 3/2/23.
 //
+
 import SwiftUI
+
 
 // The main view of the app
 struct ContentView: View {
     // Keeps track of the selected tab
     @State private var selection: Tab = .photos
     
-    // Declaring and initializing a ViewModel object to manage data flow
     @State private var viewModel: ViewModel = ViewModel()
     
-    // Variables to keep track of whether the ImagePicker and CameraPicker are shown
     @State private var showCameraPicker = false
     @State private var showImagePicker = false
-    
     // A Post object to be passed to the ProfileView
     var post: Post
     
-    // An enumeration of the four possible tabs
+    // An enumeration of the three possible tabs
     enum Tab {
         case photos
         case profile
@@ -31,7 +30,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            // A TabView that displays the four tabs
+            // A TabView that displays the three tabs
             TabView(selection: $selection) {
                 photosView
                 profileView
@@ -43,7 +42,6 @@ struct ContentView: View {
     
     // The content of the PhotosView tab
     var photosView: some View {
-        // Creating a ListView and passing the ViewModel as an environment object
         ListView()
             .environmentObject(viewModel)
             .tabItem {
@@ -55,7 +53,6 @@ struct ContentView: View {
     
     // The content of the ProfileView tab
     var profileView: some View {
-        // Creating a ProfileView and passing the Post and ViewModel as environment objects
         ProfileView(post: post)
             .environmentObject(viewModel)
             .tabItem {
@@ -68,7 +65,6 @@ struct ContentView: View {
     // The content of the ImagePicker tab
     var imagePickerView: some View {
         VStack {
-            // Creating a button to show the ImagePicker and a list of posts
             Button(action: {
                 showImagePicker = true
             }, label: {
@@ -82,12 +78,10 @@ struct ContentView: View {
                 PostView(post: post)
             }
         }
-        // Presenting the ImagePicker in full screen mode when showImagePicker is true
         .fullScreenCover(isPresented: $showImagePicker) {
             ImagePicker(viewModel: viewModel)
         }
         .tabItem {
-            // The label for the ImagePicker tab
             Label("Picker", systemImage: "plus.circle.fill")
         }
         .tag(Tab.picker)
@@ -96,7 +90,6 @@ struct ContentView: View {
     // The content of the CameraPicker tab
     var cameraPickerView: some View {
         VStack {
-            // Creating a button to show the CameraPicker and a list of posts
             Button(action: {
                 showCameraPicker = true
             }, label: {
@@ -110,9 +103,20 @@ struct ContentView: View {
                 PostView(post: post)
             }
         }
-        // Presenting the CameraPicker in full screen mode when showCameraPicker is true
         .fullScreenCover(isPresented: $showCameraPicker) {
             CameraPicker(viewModel: viewModel)
         }
+        .tabItem {
+            Label("Camera", systemImage: "camera.circle")
+        }
+        .tag(Tab.camera)
+    }
+    
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        let test = Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan Brantley", userPhotoID:  "alan")
+        ContentView(post: test)
     }
 }
