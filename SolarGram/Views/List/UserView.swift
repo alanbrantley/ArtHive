@@ -39,7 +39,7 @@ struct UserView: View {
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        let test = Post(photoID: "photo1", description: "Biodome", author: "Alan Brantley", userPhotoID:  "alan")
+        let test = Post(photoID: "photo1", description: "Biodome", author: "Alan", userPhotoID:  "alan")
         UserView(post: test)
             .environmentObject(ViewModel())
     }

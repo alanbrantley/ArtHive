@@ -9,16 +9,16 @@ import SwiftUI
 struct PostsManager {
     
     var feed: [Post] = [
-            Post(photoID: "photo1", description: "Biodome", author: "Alan Brantley", userPhotoID:  "alan"),
+            Post(photoID: "photo1", description: "Biodome", author: "Alan", userPhotoID:  "alan"),
             Post(photoID: "photo2", description: "Home", author: "Jasmine", userPhotoID: "jasmine"),
             Post(photoID: "photo3", description: "Control", author:  "Samantha", userPhotoID: "samantha"),
-            Post(photoID: "photo4", description: "Citywalk", author:  "Alan Brantley", userPhotoID:  "alan"),
-            Post(photoID: "photo5", description: "Tram", author:  "Alan Brantley", userPhotoID:  "alan"),
+            Post(photoID: "photo4", description: "Citywalk", author:  "Alan", userPhotoID:  "alan"),
+            Post(photoID: "photo5", description: "Tram", author:  "Alan", userPhotoID:  "alan"),
             Post(photoID: "photo6", description: "Flowerhouse", author: "David", userPhotoID: "david"),
             Post(photoID: "photo7", description: "Riverwalk", author: "Issac", userPhotoID: "isac"),
             Post(photoID: "photo8", description: "Scpacestation", author: "Jasmine", userPhotoID: "jasmine"),
-            Post(photoID: "photo9", description: "Treehouse", author:  "Alan Brantley", userPhotoID:  "alan"),
-            Post(photoID: "photo10", description: "Mansion", author:  "Alan Brantley", userPhotoID:  "alan")
+            Post(photoID: "photo9", description: "Treehouse", author:  "Alan", userPhotoID:  "alan"),
+            Post(photoID: "photo10", description: "Mansion", author:  "Alan", userPhotoID:  "alan")
     ]
 
     

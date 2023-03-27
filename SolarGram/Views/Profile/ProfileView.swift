@@ -31,9 +31,9 @@ struct ProfileView: View {
             // The ScrollView that displays the main user's posted images
             ScrollView(.vertical) {
                 LazyVGrid(columns: numColumns, spacing: 10) {
-                    ForEach(viewModel.solarGramPosts.filter { $0.author == "Alan Brantley" }) { post in
+                    ForEach(viewModel.solarGramPosts.filter { $0.author == "Alan" }) { post in
                         // The ImageView that displays the posted image
-                        ImageView(post: post, imageType: "name")
+                        ImageView(post: post, imageType: "photoID")
                             .clipped()
                     }
                 }
@@ -48,7 +48,7 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        let testPost = Post(photoID: "photo1", description: "Biodome", author: "Alan Brantley", userPhotoID: "alan")
+        let testPost = Post(photoID: "photo1", description: "Biodome", author: "Alan", userPhotoID: "alan")
         ProfileView(post: testPost)
             .environmentObject(ViewModel())
     }

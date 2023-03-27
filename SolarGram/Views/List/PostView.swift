@@ -59,7 +59,7 @@ struct PostView: View {
 
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
-        PostView(post: Post(photoID: "photo1", description: "Biodome", author: "Alan Brantley", userPhotoID:  "alan"))
+        PostView(post: Post(photoID: "photo1", description: "Biodome", author: "Alan", userPhotoID:  "alan"))
             .environmentObject(ViewModel())
     }
 }

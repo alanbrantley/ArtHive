@@ -48,10 +48,10 @@ struct ImageView: View {
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
-        let test = Post(photoID: "photo1", description: "Biodome", author: "Alan Brantley", userPhotoID:  "alan")
+        let test = Post(photoID: "photo1", description: "Biodome", author: "Alan", userPhotoID:  "alan")
         
         // Use either 'name' or 'profileImageName' as the imageType parameter
-        ImageView(post: test, imageType: "name")
+        ImageView(post: test, imageType: "photoID")
     }
 }
 

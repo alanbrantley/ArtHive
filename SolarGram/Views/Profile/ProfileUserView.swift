@@ -16,7 +16,7 @@ struct ProfileUserView: View {
     var body: some View {
         VStack {
             // Profile Image
-            ImageView(post: post, imageType: "profileImageName")
+            ImageView(post: post, imageType: "userPhotoID")
                 .clipShape(Circle())
                 .frame(width: 60, height: 60)
             
@@ -30,6 +30,6 @@ struct ProfileUserView: View {
 
 struct ProfileUserView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileUserView(post:  Post(photoID: "photo1", description: "Biodome", author: "Alan Brantley", userPhotoID:  "alan"))
+        ProfileUserView(post:  Post(photoID: "photo1", description: "Biodome", author: "Alan", userPhotoID:  "alan"))
     }
 }
