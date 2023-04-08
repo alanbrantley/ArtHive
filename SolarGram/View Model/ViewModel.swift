@@ -13,7 +13,7 @@ class ViewModel: ObservableObject {
     
     @Published var currentUser: User? = nil
     
-    private let mainUser = User(username: "user", email: "user@solargram.com", password: "password1", isLoggedIn: false)
+    private let mainUser = User(username: "user", email: "user@solargram.com", password: "pass", isLoggedIn: false)
     
     // MARK - Variable linking to the model
     
