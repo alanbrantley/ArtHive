@@ -13,7 +13,7 @@ class ViewModel: ObservableObject {
     
     @Published var currentUser: User? = nil
     
-    private let dummyUser = User(username: "user", email: "user@solargrame.com", password: "password1", isLoggedIn: false)
+    private let mainUser = User(username: "user", email: "user@solargram.com", password: "password1", isLoggedIn: false)
     
     // MARK - Variable linking to the model
     
@@ -66,13 +66,11 @@ class ViewModel: ObservableObject {
     }
     
     func signIn(username: String, password: String) {
-        print("Attempting to sign in with username: \(username) and password: \(password)")
-        // Check if the provided username and password match the dummy user
-        if dummyUser.username == username && dummyUser.password == password {
+        // Check if the provided username and password match the main user
+        if mainUser.username == username && mainUser.password == password {
             // Create a new User object with isLoggedIn set to true
-            let loggedInUser = User(username: dummyUser.username, email: dummyUser.email, password: dummyUser.password, isLoggedIn: true)
+            let loggedInUser = User(username: mainUser.username, email: mainUser.email, password: mainUser.password, isLoggedIn: true)
             currentUser = loggedInUser
-            print("logged in successfully \(loggedInUser)")
         } else {
             // Handle invalid credentials (e.g., show an error message)
             print("Invalid username or password")
