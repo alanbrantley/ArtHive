@@ -13,8 +13,9 @@ struct SignInView: View {
     @EnvironmentObject var viewModel: ViewModel
     @State private var username: String = ""
     @State private var password: String = ""
+    @State private var showingSignUpView = false
     let cornerRadius: CGFloat = 5
-
+    
     var body: some View {
         VStack {
             Spacer()
@@ -28,7 +29,7 @@ struct SignInView: View {
                     RoundedRectangle(cornerRadius: cornerRadius)
                         .stroke(.gray, lineWidth: 1)
                 )
-                
+            
             SecureField("Password", text: $password)
                 .padding()
                 .cornerRadius(cornerRadius)
@@ -37,28 +38,21 @@ struct SignInView: View {
                         .stroke(.gray, lineWidth: 1)
                 )
             
-            Button(action: {
-                viewModel.signIn(username: username, password: password)
-            }) {
-                Text("Sign In")
-                    .foregroundColor(.white)
-                    .font(.headline)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(.blue)
-                    .cornerRadius(cornerRadius)
-            }
-
+            UserSignInButton(username: $username, password: $password)
+            
             OrDivider()
             
             AppleSignInButton()
             
             Spacer()
             
-            SignUpPromptFooter()
+            SignUpPromptFooter(showingSignUpView: $showingSignUpView)
             
         }
-        .padding()
+        .padding(.horizontal)
+        .sheet(isPresented: $showingSignUpView) {
+            SignUpView(showingSignUpView: $showingSignUpView)
+        }
     }
 }
 

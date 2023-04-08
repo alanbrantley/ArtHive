@@ -9,10 +9,11 @@ import SwiftUI
 
 struct UserSignInButton: View {
     
-    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var viewModel: ViewModel
-    @State private var username: String = ""
-    @State private var password: String = ""
+    @Binding var username: String
+    @Binding var password: String
+    
+    
     
     let cornerRadius: CGFloat = 5
     var body: some View {
@@ -31,7 +32,10 @@ struct UserSignInButton: View {
 }
 
 struct UserSignInButton_Previews: PreviewProvider {
+    @State static var username = ""
+    @State static var password = ""
+    
     static var previews: some View {
-        UserSignInButton()
+        UserSignInButton(username: $username, password: $password)
     }
 }

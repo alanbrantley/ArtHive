@@ -14,23 +14,43 @@ struct SignUpView: View {
     @State private var fullName: String = ""
     @State private var username: String = ""
     @State private var password: String = ""
+    @Binding var showingSignUpView: Bool
     let cornerRadius: CGFloat = 5
     
     var body: some View {
         
-        VStack {
+        VStack(spacing: 24) {
+            
+            closeButton
             
             AppWordMark()
             
             Text("Sign up to post, sell, and trade with your friends and fans.")
+                .font(.body)
                 .multilineTextAlignment(.center)
-                .padding(16)
-
+                .padding(.horizontal)
+                .foregroundColor(.gray)
             
             AppleSignInButton()
             
             
             OrDivider()
+            
+            inputFields
+            
+            SignUpButton(email: $email, fullName: $fullName, username: $username, password: $password)
+            
+            Text("By signing up, you agree to our Terms, Data Policy, and Cookies Policy")
+                .font(.footnote)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 60)
+                .foregroundColor(.gray)
+            }
+            .padding()
+    }
+    
+    var inputFields: some View {
+        VStack {
             
             TextField("Email", text: $email)
                 .padding()
@@ -63,22 +83,25 @@ struct SignUpView: View {
                     RoundedRectangle(cornerRadius: cornerRadius)
                         .stroke(.gray, lineWidth: 1)
                 )
-            
-            SignUpButton()
-                .padding(.vertical, 16)
-            
-            Text("By signing up, you agree to our Terms, Data Policy, and Cookies Policy")
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 60)
         }
-        .padding()
-        
-       
     }
+    
+    var closeButton: some View {
+            HStack {
+                Spacer()
+                Button(action: {
+                    showingSignUpView.toggle()
+                }) {
+                    Image(systemName: "xmark")
+                        .foregroundColor(.gray)
+                        .padding()
+                }
+            }
+        }
 }
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView()
+        SignUpView(showingSignUpView: .constant(false))
     }
 }

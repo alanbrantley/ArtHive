@@ -23,7 +23,6 @@ struct OrDivider: View {
                 .fill(Color.gray)
                 .frame(height: 1)
         }
-        .padding(.top, 15.0)
     }
 }
 

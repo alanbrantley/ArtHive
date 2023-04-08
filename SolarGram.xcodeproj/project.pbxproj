@@ -180,12 +180,12 @@
 		D3EF2FC929E1512C005838BE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				D3EF2FC329E148FC005838BE /* AppleSignInButton.swift */,
+				D3EF2FD029E154E7005838BE /* AppWordMark.swift */,
 				D3EF2FC529E149EC005838BE /* UserSignInButton.swift */,
+				D3EF2FC329E148FC005838BE /* AppleSignInButton.swift */,
 				D3EF2FC729E14E2B005838BE /* SignUpButton.swift */,
 				D3EF2FCA29E15142005838BE /* OrDivider.swift */,
 				D3EF2FCE29E15454005838BE /* SignUpPromptFooter.swift */,
-				D3EF2FD029E154E7005838BE /* AppWordMark.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

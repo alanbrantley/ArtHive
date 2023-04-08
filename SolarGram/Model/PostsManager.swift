@@ -49,6 +49,7 @@ struct PostsManager {
 }
 
 struct User {
+    var fullName: String
     var username: String
     var email: String
     var password: String

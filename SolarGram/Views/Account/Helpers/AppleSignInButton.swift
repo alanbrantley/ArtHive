@@ -11,8 +11,8 @@ struct AppleSignInButton: View {
     
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var viewModel: ViewModel
-    @State private var username: String = ""
-    @State private var password: String = ""
+    @State private var username: String = "user"
+    @State private var password: String = "pass"
     let cornerRadius: CGFloat = 5
     
     var body: some View {

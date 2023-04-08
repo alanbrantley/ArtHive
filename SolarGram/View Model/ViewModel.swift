@@ -13,7 +13,7 @@ class ViewModel: ObservableObject {
     
     @Published var currentUser: User? = nil
     
-    private let mainUser = User(username: "user", email: "user@solargram.com", password: "pass", isLoggedIn: false)
+    private let mainUser = User(fullName: "Alan", username: "user", email: "user@solargram.com", password: "pass", isLoggedIn: false)
     
     // MARK - Variable linking to the model
     
@@ -65,11 +65,16 @@ class ViewModel: ObservableObject {
         }
     }
     
+    func signUp(email: String, fullName: String, username: String, password: String) {
+        let newUser = User(fullName: fullName, username: username, email: email, password: password, isLoggedIn: true)
+            currentUser = newUser
+        }
+    
     func signIn(username: String, password: String) {
         // Check if the provided username and password match the main user
         if mainUser.username == username && mainUser.password == password {
             // Create a new User object with isLoggedIn set to true
-            let loggedInUser = User(username: mainUser.username, email: mainUser.email, password: mainUser.password, isLoggedIn: true)
+            let loggedInUser = User(fullName: mainUser.fullName, username: mainUser.username, email: mainUser.email, password: mainUser.password, isLoggedIn: true)
             currentUser = loggedInUser
         } else {
             // Handle invalid credentials (e.g., show an error message)
