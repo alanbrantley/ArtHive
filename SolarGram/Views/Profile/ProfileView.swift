@@ -42,6 +42,10 @@ struct ProfileView: View {
             
             // Spacer to push the content to the top of the screen
             Spacer()
+            
+            Button("Sign Out") {
+                viewModel.signOut()
+            }
         }
     }
 }

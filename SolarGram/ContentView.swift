@@ -17,6 +17,9 @@ struct ContentView: View {
     
     @State private var showCameraPicker = false
     @State private var showImagePicker = false
+    
+    @State private var isLoggedIn: Bool = false
+    
     // A Post object to be passed to the ProfileView
     var post: Post
     
@@ -30,15 +33,24 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            // A TabView that displays the three tabs
-            TabView(selection: $selection) {
-                photosView
-                profileView
-                imagePickerView
-                cameraPickerView
+            if !isLoggedIn {
+                SignInView()
+                    .environmentObject(viewModel)
+            } else {
+                TabView(selection: $selection) {
+                    photosView
+                    profileView
+                    imagePickerView
+                    cameraPickerView
+                }
             }
         }
+        .onReceive(viewModel.$currentUser) { newUser in
+            print("ContentView detected currentUser change: \(String(describing: newUser))")
+            isLoggedIn = (newUser != nil)
+        }
     }
+
     
     // The content of the PhotosView tab
     var photosView: some View {
