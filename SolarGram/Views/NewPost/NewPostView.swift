@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct NewPostView: View {
+    @Environment(\.dismiss) var dismiss
+
     @EnvironmentObject var viewModel: ViewModel
     @State var description: String = ""
     @State var price: String = ""
+    
+    @Binding var isPresentNewPost : Bool
+
     
     var body: some View {
         VStack{
@@ -45,6 +50,9 @@ struct NewPostView: View {
             Spacer()
             Button("Post My New Art") {
             //Wirte the action once user tap the Post button
+                let selectedImage = viewModel.selectedImage
+                self.viewModel.addPostFrom(image: selectedImage, description: description, price: price)
+                dismiss()
                 
             }
             .padding()
@@ -59,7 +67,7 @@ struct NewPostView: View {
 
 struct NewPostView_Previews: PreviewProvider {
     static var previews: some View {
-        NewPostView()
+        NewPostView(isPresentNewPost: .constant(false))
             .environmentObject(ViewModel())
     }
 }

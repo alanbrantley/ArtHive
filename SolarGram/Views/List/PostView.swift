@@ -58,8 +58,17 @@ struct PostView: View {
             Text(post.description)
                 .font(.footnote)
                 .padding(.leading, 8)
-                .padding(.bottom, 10)
+                .padding(.bottom, 5)
                 .foregroundColor(.primary)
+            
+            //Show price
+            if let price = post.price {
+                Text(price)
+                    .font(.footnote)
+                    .padding(.leading, 8)
+                    .padding(.bottom, 10)
+                    .foregroundColor(.primary)
+            }
             
             // Show a love button that toggles the isLoved state variable
             FavoriteButton(post: post)
@@ -81,7 +90,7 @@ struct PostView: View {
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
         // A preview of the PostView with a test Post object and a ViewModel object
-        PostView(post: Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "alan"))
+        PostView(post: Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "alan", price: "$500"))
             .environmentObject(ViewModel())
     }
 }

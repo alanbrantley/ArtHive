@@ -16,11 +16,6 @@ struct ContentView: View {
     @State private var viewModel: ViewModel = ViewModel()
     
 
-
-    
-
-
-
     
 //    @State private var showCameraPicker = false
 //    @State private var showImagePicker = false
@@ -138,7 +133,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let test = Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan Brantley", userPhotoID:  "alan", price: "")
+        let test = Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan Brantley", userPhotoID:  "alan")
         ContentView(post: test)
     }
 }

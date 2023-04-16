@@ -12,7 +12,7 @@ import PhotosUI
 
 #if os(iOS)
 
-struct ImagePicker: UIViewControllerRepresentable {
+struct ImagePicker: UIViewControllerRepresentable {    
     @ObservedObject var viewModel: ViewModel
     @Binding var isPresentNewPost: Bool
 
@@ -53,7 +53,7 @@ struct ImagePicker: UIViewControllerRepresentable {
                     //Sending the selected  image to View Model
                     self.parent.viewModel.selectedImage = image as? UIImage
                     //Use the addPostFrom function in View Model
-                    self.parent.viewModel.addPostFrom(image: image as? UIImage, description: "", price: "")
+//                    self.parent.viewModel.addPostFrom(image: image as? UIImage, description: "", price: "")
                     //Open NewPostView
                     self.parent.isPresentNewPost = true
                 }

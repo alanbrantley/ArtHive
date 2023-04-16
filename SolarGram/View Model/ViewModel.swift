@@ -18,6 +18,7 @@ class ViewModel: ObservableObject {
     @Published var selectedImage: UIImage? // add a variable to store the selected image
 
 
+
     
     // MARK - Variables that are available to the model
     
@@ -64,7 +65,7 @@ class ViewModel: ObservableObject {
     //Add a new Post
     func addPostFrom(image: UIImage?, description: String, price: String) {
         guard let image = selectedImage else { return }
-        
+
         
 //         you must do this on main thread for UI to update properly
         DispatchQueue.main.async {
