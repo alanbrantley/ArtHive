@@ -63,13 +63,13 @@ class ViewModel: ObservableObject {
 
     
     //Add a new Post
-    func addPostFrom(image: UIImage?, description: String, price: String) {
+    func addPostFrom(image: UIImage?, description: String, price: String, isEnhanced: Bool) {
         guard let image = selectedImage else { return }
 
         
 //         you must do this on main thread for UI to update properly
         DispatchQueue.main.async {
-            let newPost = Post(photoID: image, description: description, author: "Alan", userPhotoID: "alan", price: price)
+            let newPost = Post(photoID: image, description: description, author: "Alan", userPhotoID: "alan", price: price, isEnhanced: isEnhanced)
             self.model.addPost(post: newPost)
         }
     }

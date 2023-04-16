@@ -72,6 +72,6 @@ struct Post: Identifiable, Hashable {
     var price: String?
     
     //Whether the art piece is AI-enhanced
-
+    var isEnhanced: Bool = false
 
 }

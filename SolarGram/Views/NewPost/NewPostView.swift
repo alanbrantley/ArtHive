@@ -15,6 +15,8 @@ struct NewPostView: View {
     @State var price: String = ""
     
     @Binding var isPresentNewPost : Bool
+    
+    @State var isEnhanced: Bool = false
 
     
     var body: some View {
@@ -45,13 +47,17 @@ struct NewPostView: View {
             .background(Color.gray.opacity(0.3).cornerRadius(10))
             
             //Select whether the art piece is AI-enhanced
+            Toggle(isOn: $isEnhanced) {
+                Text("Is this art piece AI-enhanced?")
+            }
+            .toggleStyle(.switch)
             
             //Button to submit the post
             Spacer()
             Button("Post My New Art") {
             //Wirte the action once user tap the Post button
                 let selectedImage = viewModel.selectedImage
-                self.viewModel.addPostFrom(image: selectedImage, description: description, price: price)
+                self.viewModel.addPostFrom(image: selectedImage, description: description, price: price, isEnhanced: isEnhanced)
                 dismiss()
                 
             }

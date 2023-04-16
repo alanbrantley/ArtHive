@@ -64,6 +64,10 @@ struct AddPost: View {
                             self.isPresentNewPost.toggle()
                         }) {
                             Text("Add Selected Image")
+                                .padding()
+                                .background(Color.black)
+                                .foregroundColor(Color.white)
+                                .cornerRadius(40)
                         }.sheet(isPresented: $isPresentNewPost) {
                             NewPostView(isPresentNewPost: .constant(false))
                         }
@@ -71,6 +75,10 @@ struct AddPost: View {
                     
                 } label: {
                     Text("Upload From Album")
+                        .padding()
+                        .background(Color.black)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(40)
                 }
                 
                 
