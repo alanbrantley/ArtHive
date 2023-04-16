@@ -59,13 +59,16 @@ class ViewModel: ObservableObject {
 //    }
     
     //Function that as the selected image to the next view: NewPostView
+
+    
+    //Add a new Post
     func addPostFrom(image: UIImage?, description: String, price: String) {
         guard let image = selectedImage else { return }
         
         
 //         you must do this on main thread for UI to update properly
         DispatchQueue.main.async {
-            let newPost = Post(photoID: image, description: description, author: "Alan", userPhotoID: "alan", price: "")
+            let newPost = Post(photoID: image, description: description, author: "Alan", userPhotoID: "alan", price: price)
             self.model.addPost(post: newPost)
         }
     }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		299DC6B129EB75CE003DBA34 /* Add Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DC6B029EB75CE003DBA34 /* Add Post.swift */; };
+		299DC6B129EB75CE003DBA34 /* AddPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DC6B029EB75CE003DBA34 /* AddPost.swift */; };
 		299DC6B329EB75E3003DBA34 /* SquarePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DC6B229EB75E3003DBA34 /* SquarePicture.swift */; };
 		299DC6B529EB75F4003DBA34 /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DC6B429EB75F4003DBA34 /* NewPostView.swift */; };
 		D30D795D29CD478100F431C0 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30D795C29CD478100F431C0 /* ViewModel.swift */; };
@@ -28,7 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		299DC6B029EB75CE003DBA34 /* Add Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Post.swift"; sourceTree = "<group>"; };
+		299DC6B029EB75CE003DBA34 /* AddPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPost.swift; sourceTree = "<group>"; };
 		299DC6B229EB75E3003DBA34 /* SquarePicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquarePicture.swift; sourceTree = "<group>"; };
 		299DC6B429EB75F4003DBA34 /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
 		D30D795C29CD478100F431C0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 		299DC6AF29EB75B9003DBA34 /* NewPost */ = {
 			isa = PBXGroup;
 			children = (
-				299DC6B029EB75CE003DBA34 /* Add Post.swift */,
+				299DC6B029EB75CE003DBA34 /* AddPost.swift */,
 				299DC6B229EB75E3003DBA34 /* SquarePicture.swift */,
 				299DC6B429EB75F4003DBA34 /* NewPostView.swift */,
 			);
@@ -257,7 +257,7 @@
 				299DC6B529EB75F4003DBA34 /* NewPostView.swift in Sources */,
 				D38CE2A829B2C5F600F56FE9 /* ListView.swift in Sources */,
 				299DC6B329EB75E3003DBA34 /* SquarePicture.swift in Sources */,
-				299DC6B129EB75CE003DBA34 /* Add Post.swift in Sources */,
+				299DC6B129EB75CE003DBA34 /* AddPost.swift in Sources */,
 				D38CE28929B1DC9500F56FE9 /* SolarGramApp.swift in Sources */,
 				D38CE2A229B2AEF600F56FE9 /* FavoriteButton.swift in Sources */,
 				D38CE29829B29F7C00F56FE9 /* UserView.swift in Sources */,
