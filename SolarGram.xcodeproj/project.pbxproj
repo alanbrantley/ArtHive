@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		299DC6B129EB75CE003DBA34 /* Add Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DC6B029EB75CE003DBA34 /* Add Post.swift */; };
+		299DC6B329EB75E3003DBA34 /* SquarePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DC6B229EB75E3003DBA34 /* SquarePicture.swift */; };
+		299DC6B529EB75F4003DBA34 /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DC6B429EB75F4003DBA34 /* NewPostView.swift */; };
 		D30D795D29CD478100F431C0 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30D795C29CD478100F431C0 /* ViewModel.swift */; };
 		D30D796129CD525800F431C0 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30D796029CD525800F431C0 /* ImageView.swift */; };
 		D38CE28929B1DC9500F56FE9 /* SolarGramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38CE28829B1DC9500F56FE9 /* SolarGramApp.swift */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		299DC6B029EB75CE003DBA34 /* Add Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Post.swift"; sourceTree = "<group>"; };
+		299DC6B229EB75E3003DBA34 /* SquarePicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquarePicture.swift; sourceTree = "<group>"; };
+		299DC6B429EB75F4003DBA34 /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
 		D30D795C29CD478100F431C0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		D30D796029CD525800F431C0 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		D38CE28529B1DC9500F56FE9 /* SolarGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolarGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +62,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		299DC6AF29EB75B9003DBA34 /* NewPost */ = {
+			isa = PBXGroup;
+			children = (
+				299DC6B029EB75CE003DBA34 /* Add Post.swift */,
+				299DC6B229EB75E3003DBA34 /* SquarePicture.swift */,
+				299DC6B429EB75F4003DBA34 /* NewPostView.swift */,
+			);
+			path = NewPost;
+			sourceTree = "<group>";
+		};
 		D30D795B29CD474A00F431C0 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +125,7 @@
 				D38CE28A29B1DC9500F56FE9 /* ContentView.swift */,
 				D38CE29A29B2A17F00F56FE9 /* Profile */,
 				D38CE29929B2A17400F56FE9 /* List */,
+				299DC6AF29EB75B9003DBA34 /* NewPost */,
 				D3CCD61529CFFB9E00296F04 /* Pickers */,
 			);
 			path = Views;
@@ -237,7 +254,10 @@
 				D38CE28B29B1DC9500F56FE9 /* ContentView.swift in Sources */,
 				D3CCD61229CFFA2600296F04 /* CameraPicker.swift in Sources */,
 				D30D796129CD525800F431C0 /* ImageView.swift in Sources */,
+				299DC6B529EB75F4003DBA34 /* NewPostView.swift in Sources */,
 				D38CE2A829B2C5F600F56FE9 /* ListView.swift in Sources */,
+				299DC6B329EB75E3003DBA34 /* SquarePicture.swift in Sources */,
+				299DC6B129EB75CE003DBA34 /* Add Post.swift in Sources */,
 				D38CE28929B1DC9500F56FE9 /* SolarGramApp.swift in Sources */,
 				D38CE2A229B2AEF600F56FE9 /* FavoriteButton.swift in Sources */,
 				D38CE29829B29F7C00F56FE9 /* UserView.swift in Sources */,

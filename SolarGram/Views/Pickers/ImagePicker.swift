@@ -13,9 +13,8 @@ import PhotosUI
 #if os(iOS)
 
 struct ImagePicker: UIViewControllerRepresentable {
+    @ObservedObject var viewModel: ViewModel
     
-    var viewModel: ViewModel
-
     func makeUIViewController(context: Context) -> PHPickerViewController {
         var config = PHPickerConfiguration()
         config.filter = .images
@@ -48,7 +47,15 @@ struct ImagePicker: UIViewControllerRepresentable {
                 provider.loadObject(ofClass: UIImage.self) { image, _ in
                     
                     // MARK: This is where I send the image from the photo library to the View Model. You should not edit this, instead you should make a ViewModel and a function called "addPostFrom" that works with this.
-                    self.parent.viewModel.addPostFrom(image: image as? UIImage)
+                    
+                    //Sending the selected  image to View Model
+                    self.parent.viewModel.selectedImage = image as? UIImage
+                    //Use the addPostFrom function in View Model
+                    self.parent.viewModel.addPostFrom(image: image as? UIImage, description: "", price: "")
+
+                    //Open NewPostView
+
+                    
                 }
             }
         }
