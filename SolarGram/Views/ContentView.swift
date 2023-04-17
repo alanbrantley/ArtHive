@@ -75,7 +75,7 @@ struct ContentView: View {
             .tabItem {
                 Label("Post", systemImage: "plus.circle.fill")
             }
-        
+            .tag(Tab.post)
         
     }
     

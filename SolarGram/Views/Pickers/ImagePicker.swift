@@ -15,6 +15,8 @@ import PhotosUI
 struct ImagePicker: UIViewControllerRepresentable {    
     @ObservedObject var viewModel: ViewModel
     @Binding var isPresentNewPost: Bool
+    @Environment(\.dismiss) private var dismiss
+
 
     
     func makeUIViewController(context: Context) -> PHPickerViewController {
@@ -42,6 +44,10 @@ struct ImagePicker: UIViewControllerRepresentable {
 
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
 //            picker.dismiss(animated: true)
+            if results.isEmpty {
+                picker.dismiss(animated: true)
+                return
+           }
 
             guard let provider = results.first?.itemProvider else { return }
 
@@ -54,8 +60,14 @@ struct ImagePicker: UIViewControllerRepresentable {
                     self.parent.viewModel.selectedImage = image as? UIImage
                     //Use the addPostFrom function in View Model
 //                    self.parent.viewModel.addPostFrom(image: image as? UIImage, description: "", price: "")
+                   
                     //Open NewPostView
                     self.parent.isPresentNewPost = true
+                    
+                    
+                    
+                    
+                    
                 }
             }
         }

@@ -19,76 +19,111 @@ struct AddPost: View {
 
     
     
+//    var body: some View {
+        
+        
+//        NavigationView {
+//            VStack{
+//                //The button for taking a picture
+//                Button("Take A Picture") {
+//                    showImagePicker.toggle()
+//                }
+//                .padding()
+//                .background(Color.black)
+//                .foregroundColor(Color.white)
+//                .cornerRadius(40)
+//                .fullScreenCover(isPresented: $showImagePicker, content: {
+//                    CameraPicker(viewModel: viewModel, isPresentNewPost: .constant(false))
+//                })
+//
+//
+//                NavigationLink{
+//                    VStack {
+//                        ImagePicker(viewModel: viewModel, isPresentNewPost: .constant(false))
+//                        Button(action: {
+//                            self.isPresentNewPost.toggle()
+//                        }) {
+//                            Text("Add Selected Image")
+//                                .padding()
+//                                .background(Color.black)
+//                                .foregroundColor(Color.white)
+//                                .cornerRadius(40)
+//                        }.sheet(isPresented: $isPresentNewPost) {
+//                            NewPostView(isPresentNewPost: .constant(false))
+//                        }
+//                    }
+//
+//                } label: {
+//                    Text("Upload From Album")
+//                        .padding()
+//                        .background(Color.black)
+//                        .foregroundColor(Color.white)
+//                        .cornerRadius(40)
+//                }
+//
+//
+//            }
+//        }
+//    }
+    
+    
     var body: some View {
-        
-        
-        NavigationView {
-            VStack{
+            
+            VStack {
                 //The button for taking a picture
                 Button("Take A Picture") {
+                    showCameraPicker.toggle()
+                }
+                .padding()
+                .background(Color.black)
+                .foregroundColor(Color.white)
+                .cornerRadius(40)
+                
+                //The button for adding a picture from the album
+                
+                Button("Upload From Album") {
                     showImagePicker.toggle()
                 }
                 .padding()
                 .background(Color.black)
                 .foregroundColor(Color.white)
                 .cornerRadius(40)
-                .fullScreenCover(isPresented: $showImagePicker, content: {
-                    CameraPicker(viewModel: viewModel, isPresentNewPost: .constant(false))
-                })
                 
-                //The button for adding a picture from the album
+            }
+            .fullScreenCover(isPresented: $showCameraPicker, content: {
+                cameraStack
+            })
+            .sheet(isPresented: $showImagePicker, content: {
+                imageStack
+            })
+
+    }
+    
+    
+    var imageStack: some View {
+            NavigationStack {
+                ImagePicker(viewModel: viewModel, isPresentNewPost: .constant(false))
                 
-//                Button("Upload From Album") {
-//                    showCameraPicker.toggle()
-//                }
-//                .padding()
-//                .background(Color.black)
-//                .foregroundColor(Color.white)
-//                .cornerRadius(40)
-//                .fullScreenCover(isPresented: $showCameraPicker, content: {
-//                    ImagePicker(viewModel: viewModel, isPresentNewPost: .constant(false))
-//                    Button(action: {
-//                        self.isPresentNewPost.toggle()
-//                    }) {
-//                        Text("Add Selected Image")
-//                    }.sheet(isPresented: $isPresentNewPost) {
-//                        NewPostView(isPresentNewPost: .constant(false))
-//                   }
-//                })
-                
-                
-                NavigationLink{
-                    VStack {
-                        ImagePicker(viewModel: viewModel, isPresentNewPost: .constant(false))
-                        Button(action: {
-                            self.isPresentNewPost.toggle()
-                        }) {
-                            Text("Add Selected Image")
-                                .padding()
-                                .background(Color.black)
-                                .foregroundColor(Color.white)
-                                .cornerRadius(40)
-                        }.sheet(isPresented: $isPresentNewPost) {
-                            NewPostView(isPresentNewPost: .constant(false))
-                        }
-                    }
-                    
+                NavigationLink {
+                    NewPostView(isPresentNewPost: .constant(false))
                 } label: {
-                    Text("Upload From Album")
-                        .padding()
-                        .background(Color.black)
-                        .foregroundColor(Color.white)
-                        .cornerRadius(40)
+                    Text("Add Selected Image")
                 }
-                
+            }
+    }
+    
+    var cameraStack: some View {
+        NavigationStack {
+            CameraPicker(viewModel: viewModel, isPresentNewPost: .constant(false))
+            
+            NavigationLink {
+                NewPostView(isPresentNewPost: .constant(false))
+            } label: {
                 
             }
         }
-
-
-        
-        
     }
+    
 }
 
 struct AddPost_Previews: PreviewProvider {
