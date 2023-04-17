@@ -67,9 +67,11 @@ struct Post: Identifiable, Hashable {
 
     // Whether the post is marked as favorite
     var isFavorite: Bool = false
+    
+    //The price of the art piece
+    var price: String?
+    
+    //Whether the art piece is AI-enhanced
+    var isEnhanced: Bool = false
 
 }
-
-
-
-
