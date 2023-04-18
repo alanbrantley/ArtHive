@@ -14,7 +14,6 @@ import PhotosUI
 
 struct ImagePicker: UIViewControllerRepresentable {    
     @ObservedObject var viewModel: ViewModel
-    @Binding var isPresentNewPost: Bool
     @Environment(\.dismiss) private var dismiss
 
 
@@ -58,16 +57,7 @@ struct ImagePicker: UIViewControllerRepresentable {
                     
                     //Sending the selected  image to View Model
                     self.parent.viewModel.selectedImage = image as? UIImage
-                    //Use the addPostFrom function in View Model
-//                    self.parent.viewModel.addPostFrom(image: image as? UIImage, description: "", price: "")
-                   
-                    //Open NewPostView
-                    self.parent.isPresentNewPost = true
-                    
-                    
-                    
-                    
-                    
+                         
                 }
             }
         }
@@ -81,7 +71,7 @@ struct ImagePicker: UIViewControllerRepresentable {
 
 struct ImagePicker_Previews: PreviewProvider {
     static var previews: some View {
-        ImagePicker(viewModel: ViewModel(), isPresentNewPost: .constant(false))
+        ImagePicker(viewModel: ViewModel())
     }
 }
 #endif
