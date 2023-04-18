@@ -40,8 +40,8 @@ struct ContentView: View {
                 TabView(selection: $selection) {
                     photosView
                     profileView
-//                    imagePickerView
-//                    cameraPickerView
+                    imagePickerView
+                    cameraPickerView
                 }
             }
         }
