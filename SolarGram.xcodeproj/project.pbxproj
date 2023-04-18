@@ -25,6 +25,14 @@
 		D38CE2B029B2F30600F56FE9 /* PostsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38CE2AF29B2F30600F56FE9 /* PostsManager.swift */; };
 		D3CCD61229CFFA2600296F04 /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CCD61129CFFA2600296F04 /* CameraPicker.swift */; };
 		D3CCD61429CFFA8900296F04 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CCD61329CFFA8900296F04 /* ImagePicker.swift */; };
+		D3EF2FC229E146E1005838BE /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF2FC129E146E1005838BE /* SignUpView.swift */; };
+		D3EF2FC429E148FC005838BE /* AppleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF2FC329E148FC005838BE /* AppleSignInButton.swift */; };
+		D3EF2FC629E149EC005838BE /* UserSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF2FC529E149EC005838BE /* UserSignInButton.swift */; };
+		D3EF2FC829E14E2B005838BE /* SignUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF2FC729E14E2B005838BE /* SignUpButton.swift */; };
+		D3EF2FCB29E15142005838BE /* OrDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF2FCA29E15142005838BE /* OrDivider.swift */; };
+		D3EF2FCF29E15454005838BE /* SignUpPromptFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF2FCE29E15454005838BE /* SignUpPromptFooter.swift */; };
+		D3EF2FD129E154E7005838BE /* AppWordMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF2FD029E154E7005838BE /* AppWordMark.swift */; };
+		D3FFCFCE29E12296007B25BA /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FFCFCD29E12296007B25BA /* SignInView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +57,14 @@
 		D3CCD61129CFFA2600296F04 /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
 		D3CCD61329CFFA8900296F04 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D3CCD61A29D13C5100296F04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D3EF2FC129E146E1005838BE /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		D3EF2FC329E148FC005838BE /* AppleSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInButton.swift; sourceTree = "<group>"; };
+		D3EF2FC529E149EC005838BE /* UserSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignInButton.swift; sourceTree = "<group>"; };
+		D3EF2FC729E14E2B005838BE /* SignUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpButton.swift; sourceTree = "<group>"; };
+		D3EF2FCA29E15142005838BE /* OrDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrDivider.swift; sourceTree = "<group>"; };
+		D3EF2FCE29E15454005838BE /* SignUpPromptFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPromptFooter.swift; sourceTree = "<group>"; };
+		D3EF2FD029E154E7005838BE /* AppWordMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWordMark.swift; sourceTree = "<group>"; };
+		D3FFCFCD29E12296007B25BA /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +117,7 @@
 			children = (
 				D3CCD61A29D13C5100296F04 /* Info.plist */,
 				D38CE28829B1DC9500F56FE9 /* SolarGramApp.swift */,
+				D38CE28A29B1DC9500F56FE9 /* ContentView.swift */,
 				D38CE29629B29C4B00F56FE9 /* Views */,
 				D30D795B29CD474A00F431C0 /* View Model */,
 				D38CE2AE29B2F2DE00F56FE9 /* Model */,
@@ -122,7 +139,7 @@
 		D38CE29629B29C4B00F56FE9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D38CE28A29B1DC9500F56FE9 /* ContentView.swift */,
+				D3FFCFCC29E12279007B25BA /* Account */,
 				D38CE29A29B2A17F00F56FE9 /* Profile */,
 				D38CE29929B2A17400F56FE9 /* List */,
 				299DC6AF29EB75B9003DBA34 /* NewPost */,
@@ -175,6 +192,29 @@
 				D3CCD61329CFFA8900296F04 /* ImagePicker.swift */,
 			);
 			path = Pickers;
+			sourceTree = "<group>";
+		};
+		D3EF2FC929E1512C005838BE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D3EF2FD029E154E7005838BE /* AppWordMark.swift */,
+				D3EF2FC529E149EC005838BE /* UserSignInButton.swift */,
+				D3EF2FC329E148FC005838BE /* AppleSignInButton.swift */,
+				D3EF2FC729E14E2B005838BE /* SignUpButton.swift */,
+				D3EF2FCA29E15142005838BE /* OrDivider.swift */,
+				D3EF2FCE29E15454005838BE /* SignUpPromptFooter.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D3FFCFCC29E12279007B25BA /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				D3FFCFCD29E12296007B25BA /* SignInView.swift */,
+				D3EF2FC129E146E1005838BE /* SignUpView.swift */,
+				D3EF2FC929E1512C005838BE /* Helpers */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,19 +288,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3CCD61429CFFA8900296F04 /* ImagePicker.swift in Sources */,
+				D3EF2FCB29E15142005838BE /* OrDivider.swift in Sources */,
+				D3EF2FC229E146E1005838BE /* SignUpView.swift in Sources */,
 				D38CE2A429B2B0B300F56FE9 /* PostView.swift in Sources */,
 				D38CE2B029B2F30600F56FE9 /* PostsManager.swift in Sources */,
+				D3EF2FD129E154E7005838BE /* AppWordMark.swift in Sources */,
 				D38CE2AD29B2F1C300F56FE9 /* ProfileView.swift in Sources */,
+				D3EF2FC829E14E2B005838BE /* SignUpButton.swift in Sources */,
 				D38CE28B29B1DC9500F56FE9 /* ContentView.swift in Sources */,
+				D3EF2FCF29E15454005838BE /* SignUpPromptFooter.swift in Sources */,
 				D3CCD61229CFFA2600296F04 /* CameraPicker.swift in Sources */,
 				D30D796129CD525800F431C0 /* ImageView.swift in Sources */,
 				299DC6B529EB75F4003DBA34 /* NewPostView.swift in Sources */,
 				D38CE2A829B2C5F600F56FE9 /* ListView.swift in Sources */,
+				D3EF2FC429E148FC005838BE /* AppleSignInButton.swift in Sources */,
+				D3FFCFCE29E12296007B25BA /* SignInView.swift in Sources */,
 				299DC6B329EB75E3003DBA34 /* SquarePicture.swift in Sources */,
 				299DC6B129EB75CE003DBA34 /* AddPost.swift in Sources */,
 				D38CE28929B1DC9500F56FE9 /* SolarGramApp.swift in Sources */,
 				D38CE2A229B2AEF600F56FE9 /* FavoriteButton.swift in Sources */,
 				D38CE29829B29F7C00F56FE9 /* UserView.swift in Sources */,
+				D3EF2FC629E149EC005838BE /* UserSignInButton.swift in Sources */,
 				D30D795D29CD478100F431C0 /* ViewModel.swift in Sources */,
 				D38CE29C29B2A1B700F56FE9 /* ProfileUserView.swift in Sources */,
 			);

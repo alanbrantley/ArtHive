@@ -48,6 +48,14 @@ struct PostsManager {
 
 }
 
+struct User {
+    var fullName: String
+    var username: String
+    var email: String
+    var password: String
+    var isLoggedIn: Bool
+}
+
 // A model representing a post in the app
 struct Post: Identifiable, Hashable {
     // The ID of the post
