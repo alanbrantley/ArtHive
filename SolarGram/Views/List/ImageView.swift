@@ -48,7 +48,7 @@ struct ImageView: View {
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
-        let test = Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "alan")
+        let test = Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "alan", comments: [])
         
         // Use either 'photoID' or 'userPhotoID' as the imageType parameter
         ImageView(post: test, imageType: "photoID")

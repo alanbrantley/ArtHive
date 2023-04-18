@@ -30,6 +30,6 @@ struct ProfileUserView: View {
 
 struct ProfileUserView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileUserView(post:  Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "alan"))
+        ProfileUserView(post:  Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "alan", comments: []))
     }
 }

@@ -48,7 +48,7 @@ class ViewModel: ObservableObject {
         // Perform the following on the main thread to ensure the UI updates properly
         DispatchQueue.main.async {
             // Create a new Post object with the given image, author, and description
-            let newPost = Post(photoID: image, description: "A new post!", author: "Alan", userPhotoID: "alan")
+            let newPost = Post(photoID: image, description: "A new post!", author: "Alan", userPhotoID: "alan", comments: [])
             
             // Call the model's function to add the new post to the array of posts
             self.model.addPost(post: newPost)
