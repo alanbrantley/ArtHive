@@ -27,8 +27,9 @@ struct ContentView: View {
     enum Tab {
         case photos
         case profile
-        case picker
-        case camera
+//        case picker
+//        case camera
+        case post
     }
     
     var body: some View {
@@ -89,14 +90,8 @@ struct ContentView: View {
             List(viewModel.solarGramPosts) { post in
                 PostView(post: post)
             }
-        }
-        .fullScreenCover(isPresented: $showImagePicker) {
-            ImagePicker(viewModel: viewModel)
-        }
-        .tabItem {
-            Label("Picker", systemImage: "plus.circle.fill")
-        }
-        .tag(Tab.picker)
+            .tag(Tab.post)
+        
     }
 
     // The content of the CameraPicker tab

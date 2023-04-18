@@ -12,10 +12,13 @@ import PhotosUI
 
 #if os(iOS)
 
-struct ImagePicker: UIViewControllerRepresentable {
-    
-    var viewModel: ViewModel
+struct ImagePicker: UIViewControllerRepresentable {    
+    @ObservedObject var viewModel: ViewModel
+    @Binding var isPresentNewPost: Bool
+    @Environment(\.dismiss) private var dismiss
 
+
+    
     func makeUIViewController(context: Context) -> PHPickerViewController {
         var config = PHPickerConfiguration()
         config.filter = .images
@@ -40,7 +43,11 @@ struct ImagePicker: UIViewControllerRepresentable {
         }
 
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            picker.dismiss(animated: true)
+//            picker.dismiss(animated: true)
+            if results.isEmpty {
+                picker.dismiss(animated: true)
+                return
+           }
 
             guard let provider = results.first?.itemProvider else { return }
 
@@ -48,17 +55,33 @@ struct ImagePicker: UIViewControllerRepresentable {
                 provider.loadObject(ofClass: UIImage.self) { image, _ in
                     
                     // MARK: This is where I send the image from the photo library to the View Model. You should not edit this, instead you should make a ViewModel and a function called "addPostFrom" that works with this.
-                    self.parent.viewModel.addPostFrom(image: image as? UIImage)
+                    
+                    //Sending the selected  image to View Model
+                    self.parent.viewModel.selectedImage = image as? UIImage
+                    //Use the addPostFrom function in View Model
+//                    self.parent.viewModel.addPostFrom(image: image as? UIImage, description: "", price: "")
+                   
+                    //Open NewPostView
+                    self.parent.isPresentNewPost = true
+                    
+                    
+                    
+                    
+                    
                 }
             }
         }
     }
+    
+
+    
+    
 }
 
 
 struct ImagePicker_Previews: PreviewProvider {
     static var previews: some View {
-        ImagePicker(viewModel: ViewModel())
+        ImagePicker(viewModel: ViewModel(), isPresentNewPost: .constant(false))
     }
 }
 #endif

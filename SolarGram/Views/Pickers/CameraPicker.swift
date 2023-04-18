@@ -14,6 +14,9 @@ import UIKit
 struct CameraPicker: UIViewControllerRepresentable {
     var viewModel: ViewModel
     @Environment(\.dismiss) private var dismiss
+    
+    @Binding var isPresentNewPost: Bool
+
 
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
@@ -41,7 +44,11 @@ struct CameraPicker: UIViewControllerRepresentable {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 // MARK: This is where I send the image from the photo library to the View Model. You should not edit this, instead you should make a ViewModel and a function called "addPostFrom" that works with this.
-                parent.viewModel.addPostFrom(image: image)
+//                self.parent.viewModel.addPostFrom(image: image, description: "", price: "")
+                self.parent.viewModel.selectedImage = image as UIImage
+               
+                //Open NewPostView
+                self.parent.isPresentNewPost = true
             }
             parent.dismiss()
         }
@@ -52,7 +59,7 @@ struct CameraPicker: UIViewControllerRepresentable {
 
 struct CameraPicker_Previews: PreviewProvider {
     static var previews: some View {
-        CameraPicker(viewModel: ViewModel())
+        CameraPicker(viewModel: ViewModel(), isPresentNewPost: .constant(false))
     }
 }
 #endif

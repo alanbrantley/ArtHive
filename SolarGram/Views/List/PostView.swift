@@ -55,11 +55,39 @@ struct PostView: View {
             ImageView(post: post, imageType: "photoID")
             
             // Show the post description
-            Text(post.description)
-                .font(.footnote)
-                .padding(.leading, 8)
-                .padding(.bottom, 10)
+            HStack {
+                Text(post.description)
+                    .font(.subheadline)
+                    .padding(.leading, 8)
+                    .padding(.bottom, 5)
                 .foregroundColor(.primary)
+                
+                Spacer()
+                
+                if post.isEnhanced {
+                    Text("AI-enhanced")
+                        .padding([.leading, .trailing], 10)
+                        .background(Color.orange)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(20)
+                } else {
+                    Text("Original")
+                        .padding([.leading, .trailing], 10)
+                        .background(Color.green)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(20)
+                }
+                
+            }
+            
+            //Show price
+            if let price = post.price {
+                Text(price)
+                    .font(.footnote)
+                    .padding(.leading, 8)
+                    .padding(.bottom, 10)
+                    .foregroundColor(.primary)
+            }
             
             // Show a love button that toggles the isLoved state variable
             FavoriteButton(post: post)
@@ -81,7 +109,7 @@ struct PostView: View {
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
         // A preview of the PostView with a test Post object and a ViewModel object
-        PostView(post: Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "alan"))
+        PostView(post: Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "alan", price: "$500", isEnhanced: false))
             .environmentObject(ViewModel())
     }
 }
