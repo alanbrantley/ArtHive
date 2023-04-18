@@ -19,6 +19,7 @@ struct ContentView: View {
     
 //    @State private var showCameraPicker = false
 //    @State private var showImagePicker = false
+    
     @State private var showPost = false
     // A Post object to be passed to the ProfileView
     var post: Post

@@ -45,7 +45,7 @@ struct CameraPicker: UIViewControllerRepresentable {
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 // MARK: This is where I send the image from the photo library to the View Model. You should not edit this, instead you should make a ViewModel and a function called "addPostFrom" that works with this.
 //                self.parent.viewModel.addPostFrom(image: image, description: "", price: "")
-                self.parent.viewModel.selectedImage = image
+                self.parent.viewModel.selectedImage = image as UIImage
                
                 //Open NewPostView
                 self.parent.isPresentNewPost = true
