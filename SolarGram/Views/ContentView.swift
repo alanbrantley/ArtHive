@@ -71,7 +71,7 @@ struct ContentView: View {
     
 //    The content of the post tab
     var postView: some View {
-        AddPost()
+        AddPost(isPresented: .constant(false))
             .environmentObject(viewModel)
             .tabItem {
                 Label("Post", systemImage: "plus.circle.fill")

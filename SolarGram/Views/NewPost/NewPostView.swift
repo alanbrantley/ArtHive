@@ -17,6 +17,8 @@ struct NewPostView: View {
     @Binding var isPresentNewPost : Bool
     
     @State var isEnhanced: Bool = false
+    
+    @Binding var isPresented: Bool
 
     
     var body: some View {
@@ -58,6 +60,8 @@ struct NewPostView: View {
             //Wirte the action once user tap the Post button
                 let selectedImage = viewModel.selectedImage
                 self.viewModel.addPostFrom(image: selectedImage, description: description, price: price, isEnhanced: isEnhanced)
+                isPresented = false
+                
                 dismiss()
                 
             }
@@ -73,7 +77,7 @@ struct NewPostView: View {
 
 struct NewPostView_Previews: PreviewProvider {
     static var previews: some View {
-        NewPostView(isPresentNewPost: .constant(false))
+        NewPostView(isPresentNewPost: .constant(false), isPresented: .constant(false))
             .environmentObject(ViewModel())
     }
 }

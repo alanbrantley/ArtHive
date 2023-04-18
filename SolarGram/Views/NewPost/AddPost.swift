@@ -14,11 +14,12 @@ struct AddPost: View {
     @State private var showCameraPicker = false
     @State private var showImagePicker = false
     
-    @State var isPresentNewPost : Bool = false
-
+//    @State var isPresentNewPost : Bool = false
+    
+    @Binding var isPresented: Bool
 
     
-    
+
 //    var body: some View {
         
         
@@ -83,6 +84,7 @@ struct AddPost: View {
                 
                 Button("Upload From Album") {
                     showImagePicker.toggle()
+                    isPresented = true
                 }
                 .padding()
                 .background(Color.black)
@@ -105,7 +107,7 @@ struct AddPost: View {
                 ImagePicker(viewModel: viewModel, isPresentNewPost: .constant(false))
                 
                 NavigationLink {
-                    NewPostView(isPresentNewPost: .constant(false))
+                    NewPostView(isPresentNewPost: .constant(false), isPresented: $showImagePicker)
                 } label: {
                     Text("Add Selected Image")
                 }
@@ -117,7 +119,7 @@ struct AddPost: View {
             CameraPicker(viewModel: viewModel, isPresentNewPost: .constant(false))
             
             NavigationLink {
-                NewPostView(isPresentNewPost: .constant(false))
+                NewPostView(isPresentNewPost: .constant(false), isPresented: .constant(false))
             } label: {
                 
             }
@@ -128,7 +130,7 @@ struct AddPost: View {
 
 struct AddPost_Previews: PreviewProvider {
     static var previews: some View {
-        AddPost()
+        AddPost(isPresented: .constant(false))
             .environmentObject(ViewModel())
     }
 }
