@@ -12,11 +12,9 @@ import SwiftUI
 struct ContentView: View {
     // Keeps track of the selected tab
     @State private var selection: Tab = .photos
-    
     @State private var viewModel: ViewModel = ViewModel()
-    
-    @State private var showCameraPicker = false
-    @State private var showImagePicker = false
+    @State private var showPost = false
+
     
     @State private var isLoggedIn: Bool = false
     
@@ -27,8 +25,6 @@ struct ContentView: View {
     enum Tab {
         case photos
         case profile
-//        case picker
-//        case camera
         case post
     }
     
@@ -40,6 +36,7 @@ struct ContentView: View {
             } else {
                 TabView(selection: $selection) {
                     photosView
+                    postView
                     profileView
                 }
             }
@@ -73,7 +70,18 @@ struct ContentView: View {
             .tag(Tab.profile)
     }
     
-}
+    //    The content of the post tab
+        var postView: some View {
+            AddPost(showNext: .constant(false))
+                .environmentObject(viewModel)
+                .tabItem {
+                    Label("Post", systemImage: "plus.circle.fill")
+                }
+                .tag(Tab.post)
+            
+        }
+    }
+    
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

@@ -13,11 +13,8 @@ struct NewPostView: View {
     @EnvironmentObject var viewModel: ViewModel
     @State var description: String = ""
     @State var price: String = ""
-    
-    @Binding var isPresentNewPost : Bool
-    
+        
     @State var isEnhanced: Bool = false
-    
     @Binding var isPresented: Bool
 
     
@@ -77,7 +74,7 @@ struct NewPostView: View {
 
 struct NewPostView_Previews: PreviewProvider {
     static var previews: some View {
-        NewPostView(isPresentNewPost: .constant(false), isPresented: .constant(false))
+        NewPostView(isPresented: .constant(false))
             .environmentObject(ViewModel())
     }
 }
