@@ -41,8 +41,7 @@ struct ContentView: View {
                 TabView(selection: $selection) {
                     photosView
                     profileView
-                    imagePickerView
-                    cameraPickerView
+
                 }
             }
         }
@@ -73,50 +72,6 @@ struct ContentView: View {
                 Label("Profile", systemImage: "person.circle.fill")
             }
             .tag(Tab.profile)
-    }
-    
-    // The content of the ImagePicker tab
-    var imagePickerView: some View {
-        VStack {
-            Button(action: {
-                showImagePicker = true
-            }, label: {
-                Image(systemName: "photo.on.rectangle.angled")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30, height: 30)
-            })
-
-            List(viewModel.solarGramPosts) { post in
-                PostView(post: post)
-            }
-            .tag(Tab.post)
-        
-    }
-
-    // The content of the CameraPicker tab
-    var cameraPickerView: some View {
-        VStack {
-            Button(action: {
-                showCameraPicker = true
-            }, label: {
-                Image(systemName: "camera.circle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30, height: 30)
-            })
-
-            List(viewModel.solarGramPosts) { post in
-                PostView(post: post)
-            }
-        }
-        .fullScreenCover(isPresented: $showCameraPicker) {
-            CameraPicker(viewModel: viewModel)
-        }
-        .tabItem {
-            Label("Camera", systemImage: "camera.circle")
-        }
-        .tag(Tab.camera)
     }
     
 }
