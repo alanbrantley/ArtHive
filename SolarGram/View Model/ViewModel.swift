@@ -48,22 +48,22 @@ class ViewModel: ObservableObject {
         model.removePost(post: post)
     }
     
-//    // Function that adds a new post to the array of posts
-//    func addPostFrom(image: UIImage?) {
-//        
-//        // Make sure the optional image parameter is not nil
-//        guard let image else { return }
-//        
-//        // Perform the following on the main thread to ensure the UI updates properly
-//        DispatchQueue.main.async {
-//            
-//            // Create a new Post object with the given image, author, and description
-//            let newPost = Post(photoID: image, description: "A new post!", author: "Alan", userPhotoID: "alan")
-//            
-//            // Call the model's function to add the new post to the array of posts
-//            self.model.addPost(post: newPost)
-//        }
-//    }
+    // Function that adds a new post to the array of posts
+    func addPostFrom(image: UIImage?) {
+        
+        // Make sure the optional image parameter is not nil
+        guard let image else { return }
+        
+        // Perform the following on the main thread to ensure the UI updates properly
+        DispatchQueue.main.async {
+            
+            // Create a new Post object with the given image, author, and description
+            let newPost = Post(photoID: image, description: "A new post!", author: "Alan", userPhotoID: "alan")
+            
+            // Call the model's function to add the new post to the array of posts
+            self.model.addPost(post: newPost)
+        }
+    }
     
     func signUp(email: String, fullName: String, username: String, password: String) {
         let newUser = User(fullName: fullName, username: username, email: email, password: password, isLoggedIn: true)
