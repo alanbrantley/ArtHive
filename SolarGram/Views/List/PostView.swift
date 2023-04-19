@@ -67,7 +67,8 @@ struct PostView: View {
                 .foregroundColor(.primary)
             // Show to comments/add a coment
             .listStyle(PlainListStyle())
-            CommentView(post: post /*, clickedOut: $clickedOut*/)
+//            CommentView(comment: viewModel.solarGramPosts)
+            NewCommentView(post: post)
 //            TextField("Add a Comment", text: $Post)
             // Show a divider on macOS, but not on iOS/iPadOS/watchOS/tvOS
             #if os(macOS)
