@@ -54,4 +54,19 @@ class ViewModel: ObservableObject {
             self.model.addPost(post: newPost)
         }
     }
+//     Function that adds a new comment to the array of posts
+    func addComment(commentText: String, for postID: UUID) {
+        // Make sure the optional image parameter is not nil
+//        guard let commentText else { return }
+        
+        // Perform the following on the main thread to ensure the UI updates properly
+        DispatchQueue.main.async {
+            // Create a new Post object with the given image, author, and description
+            let newComment = Comment(user: "alan", content: commentText)
+            
+            // Call the model's function to add the new post to the array of posts
+            self.model.addComment(comment: newComment, for: postID)
+        }
+    }
+    
 }

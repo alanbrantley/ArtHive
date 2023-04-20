@@ -1,5 +1,5 @@
 //
-//  ExistingCommentView.swift
+//  CommentView.swift
 //  SolarGram
 //
 //  Created by Andrew Chang on 4/18/23.
@@ -25,7 +25,7 @@ struct CommentView: View {
             Spacer()
             Image(systemName: "heart")
                 .foregroundColor(.primary)
-            Spacer()
+                .padding(.trailing, 4)
         }
         .padding(.leading, 4)
         .padding(.trailing, 4)
@@ -33,7 +33,7 @@ struct CommentView: View {
     }
 }
 
-struct ExistingCommentView_Previews: PreviewProvider {
+struct CommentView_Previews: PreviewProvider {
     static var previews: some View {
         
         let test = Comment(user: "alan", content: "My First Comment is the longest possible comment in the world")

@@ -9,25 +9,28 @@ import SwiftUI
 
 struct CommentList: View {
     
-    @EnvironmentObject var viewModel: ViewModel
+//        @EnvironmentObject var viewModel: ViewModel
+    
+    var comments: [Comment]
+    
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
         
-//        var commentList: some View {
-//            List(viewModel.solarGramPosts) { post in
-//                // Displaying each post using PostView and adding some insets
-//                PostView(post: post)
-//                    .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
-//            }
-//            .listStyle(PlainListStyle())
-//        }
-        
+        ForEach(comments) { comment in
+            // Displaying each post using CommentView and adding some insets
+            CommentView(comment: comment)
+        }
     }
 }
+        
+        
 
 struct CommentList_Previews: PreviewProvider {
     static var previews: some View {
-        CommentList()
+        
+        let comments = PostsManager.sampleData.first!.comments
+        
+        CommentList(comments: comments)
+//            .environmentObject(ViewModel())
     }
 }

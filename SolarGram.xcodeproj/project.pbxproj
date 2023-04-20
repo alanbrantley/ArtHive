@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4844E8F929EB6AF9006E15E5 /* NewCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4844E8F829EB6AF9006E15E5 /* NewCommentView.swift */; };
-		4844E8FB29EE28A5006E15E5 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4844E8FA29EE28A5006E15E5 /* CustomTextField.swift */; };
 		4844E8FD29EF777B006E15E5 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4844E8FC29EF777B006E15E5 /* CommentView.swift */; };
 		4844E8FF29EF7FFD006E15E5 /* CommentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4844E8FE29EF7FFD006E15E5 /* CommentList.swift */; };
 		D30D795D29CD478100F431C0 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30D795C29CD478100F431C0 /* ViewModel.swift */; };
@@ -30,7 +29,6 @@
 
 /* Begin PBXFileReference section */
 		4844E8F829EB6AF9006E15E5 /* NewCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentView.swift; sourceTree = "<group>"; };
-		4844E8FA29EE28A5006E15E5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		4844E8FC29EF777B006E15E5 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		4844E8FE29EF7FFD006E15E5 /* CommentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentList.swift; sourceTree = "<group>"; };
 		D30D795C29CD478100F431C0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 				4844E8F829EB6AF9006E15E5 /* NewCommentView.swift */,
 				4844E8FC29EF777B006E15E5 /* CommentView.swift */,
 				4844E8FE29EF7FFD006E15E5 /* CommentList.swift */,
-				4844E8FA29EE28A5006E15E5 /* CustomTextField.swift */,
 				D30D796029CD525800F431C0 /* ImageView.swift */,
 				D38CE29729B29F7C00F56FE9 /* UserView.swift */,
 				D38CE2A129B2AEF600F56FE9 /* FavoriteButton.swift */,
@@ -258,7 +255,6 @@
 				4844E8F929EB6AF9006E15E5 /* NewCommentView.swift in Sources */,
 				4844E8FD29EF777B006E15E5 /* CommentView.swift in Sources */,
 				D38CE29C29B2A1B700F56FE9 /* ProfileUserView.swift in Sources */,
-				4844E8FB29EE28A5006E15E5 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,8 @@ import UIKit
 
 struct PostsManager {
     
+    static var sampleData = [Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "alan", comments: [Comment(user: "alan", content: "Here is my first comment"), Comment(user: "alan", content: "Testing out what two longer comments will look like")])]
+    
     // The feed of posts
     var feed: [Post] = [
         Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "alan", comments: [Comment(user: "alan", content: "test 1"), Comment(user: "alan", content: "test 2")]),
@@ -40,8 +42,13 @@ struct PostsManager {
     }
     
     // Function to add a post to the feed
-    mutating func addComment(post: Post) {
-        feed.append(post)
+    mutating func addComment(comment: Comment, for postID: UUID) {
+        let postIndex = feed.firstIndex { p in
+            p.id == postID
+        }
+        
+        guard let actualIndex = postIndex else { return }
+        feed[actualIndex].comments.append(comment)
     }
 
     // Function to remove a post from the feed

@@ -49,12 +49,14 @@ struct PostView: View {
                             .foregroundColor(.red)
                             .padding(.trailing, 8)
                     }
+                    .buttonStyle(.plain)
                 }
             }
             
             // Show the image for the post (use either "name" or "profileImageName")
             ImageView(post: post, imageType: "photoID")
-            
+                .layoutPriority(1)
+
             // Show a love button that toggles the isLoved state variable
             FavoriteButton(post: post)
                 .padding(.leading, 8)
@@ -63,12 +65,12 @@ struct PostView: View {
             Text(post.description)
                 .font(.footnote)
                 .padding(.leading, 8)
-                .padding(.bottom, 10)
+                .padding(.bottom, 8)
                 .foregroundColor(.primary)
-            // Show to comments/add a coment
-            .listStyle(PlainListStyle())
-//            CommentView(comment: viewModel.solarGramPosts)
+                .listStyle(PlainListStyle())
+            CommentList(comments: post.comments)
             NewCommentView(post: post)
+            Spacer()
 //            TextField("Add a Comment", text: $Post)
             // Show a divider on macOS, but not on iOS/iPadOS/watchOS/tvOS
             #if os(macOS)
@@ -85,7 +87,8 @@ struct PostView: View {
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
         // A preview of the PostView with a test Post object and a ViewModel object
-        PostView(post: Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "alan", comments: []))
+        let post = PostsManager.sampleData.first!
+        PostView(post: post)
             .environmentObject(ViewModel())
     }
 }
