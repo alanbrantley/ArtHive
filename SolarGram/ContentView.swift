@@ -12,7 +12,7 @@ import SwiftUI
 struct ContentView: View {
     // Keeps track of the selected tab
     @State private var selection: Tab = .photos
-    @State private var viewModel: ViewModel = ViewModel()
+    @StateObject private var viewModel: ViewModel = ViewModel()
     @State private var showPost = false
 
     
