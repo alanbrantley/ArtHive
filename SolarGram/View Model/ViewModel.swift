@@ -15,6 +15,12 @@ class ViewModel: ObservableObject {
     
     private let mainUser = User(fullName: "Alan", username: "user", email: "user@solargram.com", password: "pass", isLoggedIn: false)
     
+    private var registeredUsers: [User] = [
+        User(fullName: "Alan", username: "user", email: "user@solargram.com", password: "pass", isLoggedIn: false)
+    ]
+    
+   
+    
     // MARK - Variable linking to the model
     
     // Declaring and initializing a private variable that is published whenever it's updated
@@ -80,6 +86,11 @@ class ViewModel: ObservableObject {
             print("Invalid username or password")
         }
     }
+    
+    func signInWithApple() {
+           let loggedInUser = User(fullName: mainUser.fullName, username: mainUser.username, email: mainUser.email, password: mainUser.password, isLoggedIn: true)
+           currentUser = loggedInUser
+       }
     
     func signOut() {
         currentUser = nil
