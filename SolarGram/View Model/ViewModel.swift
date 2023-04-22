@@ -14,7 +14,7 @@ class ViewModel: ObservableObject {
     @Published var currentUser: User? = nil
     
     private var registeredUsers: [User] = [
-        User(fullName: "Alan", username: "user", email: "user@solargram.com", password: "pass", isLoggedIn: false)
+        User(fullName: "Alan", username: "alan", email: "user@solargram.com", password: "1234", isLoggedIn: false, userImage: "alan")
     ]
     
     // MARK - Variable linking to the model
@@ -61,7 +61,7 @@ class ViewModel: ObservableObject {
         
         DispatchQueue.main.async {
             if let currentUser = self.currentUser {
-                let newPost = Post(photoID: image, description: description, author: currentUser.fullName, userPhotoID: "default", price: price, isEnhanced: isEnhanced)
+                let newPost = Post(photoID: image, description: description, author: currentUser.fullName, userPhotoID: currentUser.userImage, price: price, isEnhanced: isEnhanced)
                 self.model.addPost(post: newPost)
             } else {
                 print("Error: current user is nil.")
@@ -74,7 +74,7 @@ class ViewModel: ObservableObject {
 //    }
     
     func signUp(email: String, fullName: String, username: String, password: String) {
-        let newUser = User(fullName: fullName, username: username, email: email, password: password, isLoggedIn: true)
+        let newUser = User(fullName: fullName, username: username, email: email, password: password, isLoggedIn: true, userImage: "default")
         registeredUsers.append(newUser)
         currentUser = newUser
         

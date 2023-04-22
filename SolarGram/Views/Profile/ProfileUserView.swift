@@ -19,13 +19,13 @@ struct ProfileUserView: View {
     var body: some View {
         VStack {
             // Profile Image
-            ImageView(aspect: 1.0, post: post, imageType: "userPhotoID")
+            ImageView(aspect: 1.0, post: post, imageType: "userImage")
                 .clipShape(Circle())
                 .frame(width: 60, height: 60)
             
             // User Name
-            Text(post.author)
-                .font(.title)
+            Text(viewModel.currentUser?.fullName ?? "Unknown User")
+               .font(.title)
                 
             }
         }
@@ -34,5 +34,6 @@ struct ProfileUserView: View {
 struct ProfileUserView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileUserView(post:  Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "alan"))
+            .environmentObject(ViewModel())
     }
 }
