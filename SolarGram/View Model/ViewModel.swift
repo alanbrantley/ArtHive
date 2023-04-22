@@ -57,15 +57,17 @@ class ViewModel: ObservableObject {
     //Add a new Post
     func addPostFrom(image: UIImage?, description: String, price: String, isEnhanced: Bool) {
         guard let image = selectedImage else { return }
-
         
-//         you must do this on main thread for UI to update properly
+        
         DispatchQueue.main.async {
-            let newPost = Post(photoID: image, description: description, author: "Alan", userPhotoID: "alan", price: price, isEnhanced: isEnhanced)
-            self.model.addPost(post: newPost)
+            if let currentUser = self.currentUser {
+                let newPost = Post(photoID: image, description: description, author: currentUser.fullName, userPhotoID: "alan", price: price, isEnhanced: isEnhanced)
+                self.model.addPost(post: newPost)
+            } else {
+                print("Error: current user is nil.")
+            }
         }
     }
-    
 //    func signUp(email: String, fullName: String, username: String, password: String) {
 //        let newUser = User(fullName: fullName, username: username, email: email, password: password, isLoggedIn: true)
 //            currentUser = newUser
@@ -78,18 +80,6 @@ class ViewModel: ObservableObject {
         
         print("Current user's username: \(currentUser?.username ?? "unknown")")
     }
-    
-//    func signIn(username: String, password: String) {
-//        // Check if the provided username and password match the main user
-//        if mainUser.username == username && mainUser.password == password {
-//            // Create a new User object with isLoggedIn set to true
-//            let loggedInUser = User(fullName: mainUser.fullName, username: mainUser.username, email: mainUser.email, password: mainUser.password, isLoggedIn: true)
-//            currentUser = loggedInUser
-//        } else {
-//            // Handle invalid credentials (e.g., show an error message)
-//            print("Invalid username or password")
-//        }
-//    }
     
     func signIn(username: String, password: String) {
         for user in registeredUsers {
@@ -115,10 +105,6 @@ class ViewModel: ObservableObject {
         }
     }
     
-//    func signInWithApple() {
-//           let loggedInUser = User(fullName: mainUser.fullName, username: mainUser.username, email: mainUser.email, password: mainUser.password, isLoggedIn: true)
-//           currentUser = loggedInUser
-//    }
     
     func signOut() {
         currentUser = nil
