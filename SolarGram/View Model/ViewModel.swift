@@ -61,7 +61,7 @@ class ViewModel: ObservableObject {
         
         DispatchQueue.main.async {
             if let currentUser = self.currentUser {
-                let newPost = Post(photoID: image, description: description, author: currentUser.fullName, userPhotoID: "alan", price: price, isEnhanced: isEnhanced)
+                let newPost = Post(photoID: image, description: description, author: currentUser.fullName, userPhotoID: "default", price: price, isEnhanced: isEnhanced)
                 self.model.addPost(post: newPost)
             } else {
                 print("Error: current user is nil.")

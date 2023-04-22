@@ -13,6 +13,9 @@ struct ProfileUserView: View {
     // variable to Model
     var post: Post
     
+    // View model for the PostView
+    @EnvironmentObject var viewModel: ViewModel
+    
     var body: some View {
         VStack {
             // Profile Image
