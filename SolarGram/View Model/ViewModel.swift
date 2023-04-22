@@ -13,13 +13,9 @@ class ViewModel: ObservableObject {
     
     @Published var currentUser: User? = nil
     
-    private let mainUser = User(fullName: "Alan", username: "user", email: "user@solargram.com", password: "pass", isLoggedIn: false)
-    
     private var registeredUsers: [User] = [
         User(fullName: "Alan", username: "user", email: "user@solargram.com", password: "pass", isLoggedIn: false)
     ]
-    
-   
     
     // MARK - Variable linking to the model
     
@@ -70,27 +66,59 @@ class ViewModel: ObservableObject {
         }
     }
     
+//    func signUp(email: String, fullName: String, username: String, password: String) {
+//        let newUser = User(fullName: fullName, username: username, email: email, password: password, isLoggedIn: true)
+//            currentUser = newUser
+//    }
+    
     func signUp(email: String, fullName: String, username: String, password: String) {
         let newUser = User(fullName: fullName, username: username, email: email, password: password, isLoggedIn: true)
-            currentUser = newUser
-        }
+        registeredUsers.append(newUser)
+        currentUser = newUser
+        
+        print("Current user's username: \(currentUser?.username ?? "unknown")")
+    }
+    
+//    func signIn(username: String, password: String) {
+//        // Check if the provided username and password match the main user
+//        if mainUser.username == username && mainUser.password == password {
+//            // Create a new User object with isLoggedIn set to true
+//            let loggedInUser = User(fullName: mainUser.fullName, username: mainUser.username, email: mainUser.email, password: mainUser.password, isLoggedIn: true)
+//            currentUser = loggedInUser
+//        } else {
+//            // Handle invalid credentials (e.g., show an error message)
+//            print("Invalid username or password")
+//        }
+//    }
     
     func signIn(username: String, password: String) {
-        // Check if the provided username and password match the main user
-        if mainUser.username == username && mainUser.password == password {
-            // Create a new User object with isLoggedIn set to true
-            let loggedInUser = User(fullName: mainUser.fullName, username: mainUser.username, email: mainUser.email, password: mainUser.password, isLoggedIn: true)
-            currentUser = loggedInUser
-        } else {
+        for user in registeredUsers {
+            if user.username == username && user.password == password {
+                let loggedInUser = User(fullName: user.fullName, username: user.username, email: user.email, password: user.password, isLoggedIn: true)
+                currentUser = loggedInUser
+                break
+            }
+        }
+
+        if currentUser == nil {
             // Handle invalid credentials (e.g., show an error message)
             print("Invalid username or password")
         }
     }
     
     func signInWithApple() {
-           let loggedInUser = User(fullName: mainUser.fullName, username: mainUser.username, email: mainUser.email, password: mainUser.password, isLoggedIn: true)
-           currentUser = loggedInUser
-       }
+        if let firstUser = registeredUsers.first {
+            let loggedInUser = User(fullName: firstUser.fullName, username: firstUser.username, email: firstUser.email, password: firstUser.password, isLoggedIn: true)
+            currentUser = loggedInUser
+        } else {
+            print("No user available to sign in with Apple")
+        }
+    }
+    
+//    func signInWithApple() {
+//           let loggedInUser = User(fullName: mainUser.fullName, username: mainUser.username, email: mainUser.email, password: mainUser.password, isLoggedIn: true)
+//           currentUser = loggedInUser
+//    }
     
     func signOut() {
         currentUser = nil
