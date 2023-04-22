@@ -31,7 +31,7 @@ struct ProfileView: View {
             // The ScrollView that displays the main user's posted images
             ScrollView(.vertical) {
                 LazyVGrid(columns: numColumns, spacing: 10) {
-                    ForEach(viewModel.solarGramPosts.filter { $0.author == "Alan" }) { post in
+                    ForEach(viewModel.solarGramPosts.filter { $0.author == viewModel.currentUser?.fullName }) { post in
                         // The ImageView that displays the posted image
                         ImageView(post: post, imageType: "photoID")
                             .clipped()

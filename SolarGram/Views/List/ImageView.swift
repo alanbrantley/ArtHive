@@ -9,6 +9,8 @@ import SwiftUI
 // A view that displays an image with an aspect ratio of 1:1 (square)
 struct ImageView: View {
     
+    @EnvironmentObject var viewModel: ViewModel
+    
     // The aspect ratio of the image view
     var aspect: CGFloat = 1.0
     
@@ -25,6 +27,12 @@ struct ImageView: View {
             return post.photoID
         case "userPhotoID":
             return UIImage(named: post.userPhotoID)
+        case "userImage":
+            if let userImageName = viewModel.currentUser?.userImage {
+                return UIImage(named: userImageName)
+            } else {
+                return nil
+            }
         default:
             return nil
         }

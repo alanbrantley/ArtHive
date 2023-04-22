@@ -38,7 +38,7 @@ struct PostView: View {
                 Spacer()
                 
                 // Show a trash button for deleting if the post author is the main user
-                if post.author == "Alan" {
+                if post.author == viewModel.currentUser?.fullName {
                     Button(action: {
                         if let index = viewModel.solarGramPosts.firstIndex(where: { $0.id == post.id }) {
                             viewModel.deletePostFrom(index: index)
@@ -50,6 +50,7 @@ struct PostView: View {
                     }
                 }
             }
+                
             
             // Show the image for the post (use either "name" or "profileImageName")
             ImageView(post: post, imageType: "photoID")

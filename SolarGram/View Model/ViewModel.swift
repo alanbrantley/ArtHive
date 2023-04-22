@@ -13,7 +13,9 @@ class ViewModel: ObservableObject {
     
     @Published var currentUser: User? = nil
     
-    private let mainUser = User(fullName: "Alan", username: "user", email: "user@solargram.com", password: "pass", isLoggedIn: false)
+    private var registeredUsers: [User] = [
+        User(fullName: "Alan", username: "alan", email: "user@solargram.com", password: "1234", isLoggedIn: false, userImage: "alan")
+    ]
     
     // MARK - Variable linking to the model
     
@@ -55,31 +57,54 @@ class ViewModel: ObservableObject {
     //Add a new Post
     func addPostFrom(image: UIImage?, description: String, price: String, isEnhanced: Bool) {
         guard let image = selectedImage else { return }
-
         
-//         you must do this on main thread for UI to update properly
+        
         DispatchQueue.main.async {
-            let newPost = Post(photoID: image, description: description, author: "Alan", userPhotoID: "alan", price: price, isEnhanced: isEnhanced)
-            self.model.addPost(post: newPost)
+            if let currentUser = self.currentUser {
+                let newPost = Post(photoID: image, description: description, author: currentUser.fullName, userPhotoID: currentUser.userImage, price: price, isEnhanced: isEnhanced)
+                self.model.addPost(post: newPost)
+            } else {
+                print("Error: current user is nil.")
+            }
         }
     }
+//    func signUp(email: String, fullName: String, username: String, password: String) {
+//        let newUser = User(fullName: fullName, username: username, email: email, password: password, isLoggedIn: true)
+//            currentUser = newUser
+//    }
     
     func signUp(email: String, fullName: String, username: String, password: String) {
-        let newUser = User(fullName: fullName, username: username, email: email, password: password, isLoggedIn: true)
-            currentUser = newUser
-        }
+        let newUser = User(fullName: fullName, username: username, email: email, password: password, isLoggedIn: true, userImage: "default")
+        registeredUsers.append(newUser)
+        currentUser = newUser
+        
+        print("Current user's username: \(currentUser?.username ?? "unknown")")
+    }
     
     func signIn(username: String, password: String) {
-        // Check if the provided username and password match the main user
-        if mainUser.username == username && mainUser.password == password {
-            // Create a new User object with isLoggedIn set to true
-            let loggedInUser = User(fullName: mainUser.fullName, username: mainUser.username, email: mainUser.email, password: mainUser.password, isLoggedIn: true)
-            currentUser = loggedInUser
-        } else {
+        for user in registeredUsers {
+            if user.username == username && user.password == password {
+                let loggedInUser = User(fullName: user.fullName, username: user.username, email: user.email, password: user.password, isLoggedIn: true)
+                currentUser = loggedInUser
+                break
+            }
+        }
+
+        if currentUser == nil {
             // Handle invalid credentials (e.g., show an error message)
             print("Invalid username or password")
         }
     }
+    
+    func signInWithApple() {
+        if let firstUser = registeredUsers.first {
+            let loggedInUser = User(fullName: firstUser.fullName, username: firstUser.username, email: firstUser.email, password: firstUser.password, isLoggedIn: true)
+            currentUser = loggedInUser
+        } else {
+            print("No user available to sign in with Apple")
+        }
+    }
+    
     
     func signOut() {
         currentUser = nil
