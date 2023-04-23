@@ -68,7 +68,7 @@ class ViewModel: ObservableObject {
             }
         }
     }
-//    func signUp(email: String, fullName: String, username: String, password: String) {
+ //    func signUp(email: String, fullName: String, username: String, password: String) {
 //        let newUser = User(fullName: fullName, username: username, email: email, password: password, isLoggedIn: true)
 //            currentUser = newUser
 //    }

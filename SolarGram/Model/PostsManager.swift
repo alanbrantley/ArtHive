@@ -82,5 +82,4 @@ struct Post: Identifiable, Hashable {
     
     //Whether the art piece is AI-enhanced
     var isEnhanced: Bool = false
-
 }
