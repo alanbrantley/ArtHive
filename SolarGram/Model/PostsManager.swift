@@ -14,13 +14,13 @@ struct PostsManager {
         Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "main"),
         Post(photoID: UIImage(named: "photo2"), description: "Home", author: "Jasmine", userPhotoID: "jasmine"),
         Post(photoID: UIImage(named: "photo3"), description: "Control", author:  "Samantha", userPhotoID: "samantha"),
-        Post(photoID: UIImage(named: "photo4"), description: "Citywalk", author:  "Alan", userPhotoID:  "alan"),
-        Post(photoID: UIImage(named: "photo5"), description: "Tram", author:  "Alan", userPhotoID:  "alan"),
+        Post(photoID: UIImage(named: "photo4"), description: "Citywalk", author:  "Alan", userPhotoID:  "main"),
+        Post(photoID: UIImage(named: "photo5"), description: "Tram", author:  "Alan", userPhotoID:  "main"),
         Post(photoID: UIImage(named: "photo6"), description: "Flowerhouse", author: "David", userPhotoID: "david"),
         Post(photoID: UIImage(named: "photo7"), description: "Riverwalk", author: "Issac", userPhotoID: "issac"),
         Post(photoID: UIImage(named: "photo8"), description: "Scpacestation", author: "Jasmine", userPhotoID: "jasmine"),
-        Post(photoID: UIImage(named: "photo9"), description: "Treehouse", author:  "Alan", userPhotoID:  "alan"),
-        Post(photoID: UIImage(named: "photo10"), description: "Mansion", author:  "Alan", userPhotoID:  "alan")
+        Post(photoID: UIImage(named: "photo9"), description: "Treehouse", author:  "Alan", userPhotoID:  "main"),
+        Post(photoID: UIImage(named: "photo10"), description: "Mansion", author:  "Alan", userPhotoID:  "main")
     ]
 
     // Function to toggle the favorite status of a post
