@@ -54,7 +54,7 @@ struct User {
     var email: String
     var password: String
     var isLoggedIn: Bool
-    var userImage: String = ""
+    var userImage: String = "alan"
 }
 
 // A model representing a post in the app
