@@ -11,7 +11,7 @@ struct PostsManager {
     
     // The feed of posts
     var feed: [Post] = [
-        Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "alan"),
+        Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "main"),
         Post(photoID: UIImage(named: "photo2"), description: "Home", author: "Jasmine", userPhotoID: "jasmine"),
         Post(photoID: UIImage(named: "photo3"), description: "Control", author:  "Samantha", userPhotoID: "samantha"),
         Post(photoID: UIImage(named: "photo4"), description: "Citywalk", author:  "Alan", userPhotoID:  "alan"),
@@ -54,7 +54,7 @@ struct User {
     var email: String
     var password: String
     var isLoggedIn: Bool
-    var userImage: String = ""
+    var userImage: String = "main"
 }
 
 // A model representing a post in the app
