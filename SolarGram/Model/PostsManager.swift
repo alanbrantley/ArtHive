@@ -9,19 +9,21 @@ import UIKit
 
 struct PostsManager {
     
+    static var sampleData = [Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "alan", comments: [Comment(user: "alan", content: "Here is my first comment"), Comment(user: "alan", content: "Testing out what two longer comments will look like")])]
+    
     // The feed of posts
-    var feed: [Post] = [
-        Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "main"),
-        Post(photoID: UIImage(named: "photo2"), description: "Home", author: "Jasmine", userPhotoID: "jasmine"),
-        Post(photoID: UIImage(named: "photo3"), description: "Control", author:  "Samantha", userPhotoID: "samantha"),
-        Post(photoID: UIImage(named: "photo4"), description: "Citywalk", author:  "Alan", userPhotoID:  "main"),
-        Post(photoID: UIImage(named: "photo5"), description: "Tram", author:  "Alan", userPhotoID:  "main"),
-        Post(photoID: UIImage(named: "photo6"), description: "Flowerhouse", author: "David", userPhotoID: "david"),
-        Post(photoID: UIImage(named: "photo7"), description: "Riverwalk", author: "Issac", userPhotoID: "issac"),
-        Post(photoID: UIImage(named: "photo8"), description: "Scpacestation", author: "Jasmine", userPhotoID: "jasmine"),
-        Post(photoID: UIImage(named: "photo9"), description: "Treehouse", author:  "Alan", userPhotoID:  "main"),
-        Post(photoID: UIImage(named: "photo10"), description: "Mansion", author:  "Alan", userPhotoID:  "main")
-    ]
+        var feed: [Post] = [
+            Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "main", comments: [Comment(user: "alan", content: "test 1"), Comment(user: "alan", content: "test 2")]),
+            Post(photoID: UIImage(named: "photo2"), description: "Home", author: "Jasmine", userPhotoID: "jasmine", comments: []),
+            Post(photoID: UIImage(named: "photo3"), description: "Control", author:  "Samantha", userPhotoID: "samantha", comments: []),
+            Post(photoID: UIImage(named: "photo4"), description: "Citywalk", author:  "Alan", userPhotoID:  "main", comments: []),
+            Post(photoID: UIImage(named: "photo5"), description: "Tram", author:  "Alan", userPhotoID:  "main", comments: []),
+            Post(photoID: UIImage(named: "photo6"), description: "Flowerhouse", author: "David", userPhotoID: "david", comments: []),
+            Post(photoID: UIImage(named: "photo7"), description: "Riverwalk", author: "Issac", userPhotoID: "issac", comments: []),
+            Post(photoID: UIImage(named: "photo8"), description: "Scpacestation", author: "Jasmine", userPhotoID: "jasmine", comments: []),
+            Post(photoID: UIImage(named: "photo9"), description: "Treehouse", author:  "Alan", userPhotoID:  "main", comments: []),
+            Post(photoID: UIImage(named: "photo10"), description: "Mansion", author:  "Alan", userPhotoID:  "main", comments: [])
+        ]
 
     // Function to toggle the favorite status of a post
     mutating func toggleFavorite(_ post: Post) {
@@ -38,6 +40,16 @@ struct PostsManager {
     mutating func addPost(post: Post) {
         feed.append(post)
     }
+    
+    // Function to add a post to the feed
+        mutating func addComment(comment: Comment, for postID: UUID) {
+            let postIndex = feed.firstIndex { p in
+                p.id == postID
+            }
+            
+            guard let actualIndex = postIndex else { return }
+            feed[actualIndex].comments.append(comment)
+        }
 
     // Function to remove a post from the feed
     mutating func removePost(post: Post) {
@@ -82,4 +94,19 @@ struct Post: Identifiable, Hashable {
     
     //Whether the art piece is AI-enhanced
     var isEnhanced: Bool = false
+    
+    //  adding comments
+    var comments: [Comment]
+}
+
+struct Comment: Identifiable, Hashable {
+
+    var id: UUID = UUID()
+    
+    var user: String
+    
+    var content: String
+    
+    var isLiked: Bool = false
+    
 }

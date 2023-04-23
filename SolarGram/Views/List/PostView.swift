@@ -110,7 +110,7 @@ struct PostView: View {
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
         // A preview of the PostView with a test Post object and a ViewModel object
-        PostView(post: Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "alan", price: "$500", isEnhanced: false))
+        PostView(post: Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "alan", price: "$500", isEnhanced: false, comments: []))
             .environmentObject(ViewModel())
     }
 }
