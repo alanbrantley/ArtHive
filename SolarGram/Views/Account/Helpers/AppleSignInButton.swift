@@ -17,7 +17,7 @@ struct AppleSignInButton: View {
     
     var body: some View {
         Button(action: {
-            viewModel.signInWithApple()
+            viewModel.signIn(signInMethod: .apple)
         }) {
             HStack {
                 Image(systemName: "applelogo")

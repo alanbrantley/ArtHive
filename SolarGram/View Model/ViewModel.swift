@@ -97,27 +97,39 @@ class ViewModel: ObservableObject {
         print("Current user's username: \(currentUser?.username ?? "unknown")")
     }
     
-    func signIn(username: String, password: String) {
-        for user in registeredUsers {
-            if user.username == username && user.password == password {
-                let loggedInUser = User(fullName: user.fullName, username: user.username, email: user.email, password: user.password, isLoggedIn: true)
-                currentUser = loggedInUser
-                break
-            }
-        }
-
-        if currentUser == nil {
-            // Handle invalid credentials (e.g., show an error message)
-            print("Invalid username or password")
-        }
-    }
+    // Sign into account using regular or apple sign in method
     
-    func signInWithApple() {
-        if let firstUser = registeredUsers.first {
-            let loggedInUser = User(fullName: firstUser.fullName, username: firstUser.username, email: firstUser.email, password: firstUser.password, isLoggedIn: true)
-            currentUser = loggedInUser
-        } else {
-            print("No user available to sign in with Apple")
+    enum SignInMethod {
+        case regular
+        case apple
+    }
+
+    func signIn(username: String? = nil, password: String? = nil, signInMethod: SignInMethod = .regular) {
+        switch signInMethod {
+        case .regular:
+            guard let username = username, let password = password else {
+                print("Invalid username or password")
+                return
+            }
+
+            for user in registeredUsers {
+                if user.username == username && user.password == password {
+                    let loggedInUser = User(fullName: user.fullName, username: user.username, email: user.email, password: user.password, isLoggedIn: true)
+                    currentUser = loggedInUser
+                    break
+                }
+            }
+
+            if currentUser == nil {
+                print("Invalid username or password")
+            }
+        case .apple:
+            if let firstUser = registeredUsers.first {
+                let loggedInUser = User(fullName: firstUser.fullName, username: firstUser.username, email: firstUser.email, password: firstUser.password, isLoggedIn: true)
+                currentUser = loggedInUser
+            } else {
+                print("No user available to sign in with Apple")
+            }
         }
     }
     
