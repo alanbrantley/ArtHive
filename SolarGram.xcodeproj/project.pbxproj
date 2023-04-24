@@ -96,6 +96,13 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
+		D3707AD829F5FEC400A4C407 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
 		D38CE27C29B1DC9500F56FE9 = {
 			isa = PBXGroup;
 			children = (
@@ -141,14 +148,15 @@
 			children = (
 				D3FFCFCC29E12279007B25BA /* Account */,
 				D38CE29A29B2A17F00F56FE9 /* Profile */,
-				D38CE29929B2A17400F56FE9 /* List */,
+				D38CE29929B2A17400F56FE9 /* Feed */,
+				D3707AD829F5FEC400A4C407 /* Comment */,
 				299DC6AF29EB75B9003DBA34 /* NewPost */,
 				D3CCD61529CFFB9E00296F04 /* Pickers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		D38CE29929B2A17400F56FE9 /* List */ = {
+		D38CE29929B2A17400F56FE9 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
 				D38CE2A729B2C5F600F56FE9 /* ListView.swift */,
@@ -157,7 +165,7 @@
 				D38CE29729B29F7C00F56FE9 /* UserView.swift */,
 				D38CE2A129B2AEF600F56FE9 /* FavoriteButton.swift */,
 			);
-			path = List;
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		D38CE29A29B2A17F00F56FE9 /* Profile */ = {

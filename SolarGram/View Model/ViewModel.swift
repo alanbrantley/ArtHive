@@ -61,17 +61,33 @@ class ViewModel: ObservableObject {
         
         DispatchQueue.main.async {
             if let currentUser = self.currentUser {
-                let newPost = Post(photoID: image, description: description, author: currentUser.fullName, userPhotoID: currentUser.userImage, price: price, isEnhanced: isEnhanced)
+                let newPost = Post(photoID: image, description: description, author: currentUser.fullName, userPhotoID: currentUser.userImage, price: price, isEnhanced: isEnhanced, comments: [])
                 self.model.addPost(post: newPost)
             } else {
                 print("Error: current user is nil.")
             }
         }
     }
- //    func signUp(email: String, fullName: String, username: String, password: String) {
-//        let newUser = User(fullName: fullName, username: username, email: email, password: password, isLoggedIn: true)
-//            currentUser = newUser
-//    }
+    
+    // MARK - Add comments
+    
+    //     Function that adds a new comment to the array of posts
+        func addComment(commentText: String, for postID: UUID) {
+            // Make sure the optional image parameter is not nil
+    //        guard let commentText else { return }
+            
+            // Perform the following on the main thread to ensure the UI updates properly
+            DispatchQueue.main.async {
+                // Create a new Post object with the given image, author, and description
+                let newComment = Comment(user: "alan", content: commentText)
+                
+                // Call the model's function to add the new post to the array of posts
+                self.model.addComment(comment: newComment, for: postID)
+            }
+        }
+    
+    
+    // MARK - Create account, sign in, sign out
     
     func signUp(email: String, fullName: String, username: String, password: String) {
         let newUser = User(fullName: fullName, username: username, email: email, password: password, isLoggedIn: true, userImage: "default")
