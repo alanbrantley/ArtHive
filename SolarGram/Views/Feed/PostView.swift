@@ -98,6 +98,7 @@ struct PostView: View {
             
             CommentList(comments: post.comments)
             NewCommentView(post: post)
+                .padding(.leading, 8)
             Spacer()
             
             // Show a divider on macOS, but not on iOS/iPadOS/watchOS/tvOS

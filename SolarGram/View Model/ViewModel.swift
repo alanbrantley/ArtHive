@@ -123,6 +123,7 @@ class ViewModel: ObservableObject {
             if currentUser == nil {
                 print("Invalid username or password")
             }
+            
         case .apple:
             if let firstUser = registeredUsers.first {
                 let loggedInUser = User(fullName: firstUser.fullName, username: firstUser.username, email: firstUser.email, password: firstUser.password, isLoggedIn: true)
