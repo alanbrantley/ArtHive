@@ -114,7 +114,7 @@ class ViewModel: ObservableObject {
 
             for user in registeredUsers {
                 if user.username == username && user.password == password {
-                    let loggedInUser = User(fullName: user.fullName, username: user.username, email: user.email, password: user.password, isLoggedIn: true)
+                    let loggedInUser = User(fullName: user.fullName, username: user.username, email: user.email, password: user.password, isLoggedIn: true, userImage: user.userImage)
                     currentUser = loggedInUser
                     break
                 }
