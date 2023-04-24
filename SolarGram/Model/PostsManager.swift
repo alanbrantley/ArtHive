@@ -98,7 +98,7 @@ struct Post: Identifiable, Hashable {
     var isEnhanced: Bool = false
     
     //  adding comments
-        var comments: [Comment]
+    var comments: [Comment]
         
     }
 

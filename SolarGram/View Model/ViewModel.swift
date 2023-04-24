@@ -14,7 +14,7 @@ class ViewModel: ObservableObject {
     @Published var currentUser: User? = nil
     
     private var registeredUsers: [User] = [
-        User(fullName: "Alisa", username: "Alisa", email: "user@solargram.com", password: "1234", isLoggedIn: false, userImage: "main")
+        User(fullName: "Sasha", username: "Sasha", email: "user@solargram.com", password: "1234", isLoggedIn: false, userImage: "main")
     ]
     
     // MARK - Variable linking to the model
@@ -79,7 +79,7 @@ class ViewModel: ObservableObject {
             // Perform the following on the main thread to ensure the UI updates properly
             DispatchQueue.main.async {
                 // Create a new Post object with the given image, author, and description
-                let newComment = Comment(user: "alan", content: commentText)
+                let newComment = Comment(user: "main", content: commentText)
                 
                 // Call the model's function to add the new post to the array of posts
                 self.model.addComment(comment: newComment, for: postID)
