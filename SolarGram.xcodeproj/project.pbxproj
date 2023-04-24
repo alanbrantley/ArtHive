@@ -12,6 +12,9 @@
 		299DC6B529EB75F4003DBA34 /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DC6B429EB75F4003DBA34 /* NewPostView.swift */; };
 		D30D795D29CD478100F431C0 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30D795C29CD478100F431C0 /* ViewModel.swift */; };
 		D30D796129CD525800F431C0 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30D796029CD525800F431C0 /* ImageView.swift */; };
+		D3707ADC29F5FF9200A4C407 /* NewCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3707AD929F5FF9200A4C407 /* NewCommentView.swift */; };
+		D3707ADD29F5FF9200A4C407 /* CommentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3707ADA29F5FF9200A4C407 /* CommentList.swift */; };
+		D3707ADE29F5FF9200A4C407 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3707ADB29F5FF9200A4C407 /* CommentView.swift */; };
 		D38CE28929B1DC9500F56FE9 /* SolarGramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38CE28829B1DC9500F56FE9 /* SolarGramApp.swift */; };
 		D38CE28B29B1DC9500F56FE9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38CE28A29B1DC9500F56FE9 /* ContentView.swift */; };
 		D38CE28D29B1DC9700F56FE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D38CE28C29B1DC9700F56FE9 /* Assets.xcassets */; };
@@ -41,6 +44,9 @@
 		299DC6B429EB75F4003DBA34 /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
 		D30D795C29CD478100F431C0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		D30D796029CD525800F431C0 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		D3707AD929F5FF9200A4C407 /* NewCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCommentView.swift; sourceTree = "<group>"; };
+		D3707ADA29F5FF9200A4C407 /* CommentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentList.swift; sourceTree = "<group>"; };
+		D3707ADB29F5FF9200A4C407 /* CommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		D38CE28529B1DC9500F56FE9 /* SolarGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolarGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38CE28829B1DC9500F56FE9 /* SolarGramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarGramApp.swift; sourceTree = "<group>"; };
 		D38CE28A29B1DC9500F56FE9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +105,9 @@
 		D3707AD829F5FEC400A4C407 /* Comment */ = {
 			isa = PBXGroup;
 			children = (
+				D3707ADA29F5FF9200A4C407 /* CommentList.swift */,
+				D3707ADB29F5FF9200A4C407 /* CommentView.swift */,
+				D3707AD929F5FF9200A4C407 /* NewCommentView.swift */,
 			);
 			path = Comment;
 			sourceTree = "<group>";
@@ -296,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3CCD61429CFFA8900296F04 /* ImagePicker.swift in Sources */,
+				D3707ADD29F5FF9200A4C407 /* CommentList.swift in Sources */,
 				D3EF2FCB29E15142005838BE /* OrDivider.swift in Sources */,
 				D3EF2FC229E146E1005838BE /* SignUpView.swift in Sources */,
 				D38CE2A429B2B0B300F56FE9 /* PostView.swift in Sources */,
@@ -303,6 +313,7 @@
 				D3EF2FD129E154E7005838BE /* AppWordMark.swift in Sources */,
 				D38CE2AD29B2F1C300F56FE9 /* ProfileView.swift in Sources */,
 				D3EF2FC829E14E2B005838BE /* SignUpButton.swift in Sources */,
+				D3707ADE29F5FF9200A4C407 /* CommentView.swift in Sources */,
 				D38CE28B29B1DC9500F56FE9 /* ContentView.swift in Sources */,
 				D3EF2FCF29E15454005838BE /* SignUpPromptFooter.swift in Sources */,
 				D3CCD61229CFFA2600296F04 /* CameraPicker.swift in Sources */,
@@ -318,6 +329,7 @@
 				D38CE29829B29F7C00F56FE9 /* UserView.swift in Sources */,
 				D3EF2FC629E149EC005838BE /* UserSignInButton.swift in Sources */,
 				D30D795D29CD478100F431C0 /* ViewModel.swift in Sources */,
+				D3707ADC29F5FF9200A4C407 /* NewCommentView.swift in Sources */,
 				D38CE29C29B2A1B700F56FE9 /* ProfileUserView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
