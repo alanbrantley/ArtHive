@@ -48,6 +48,7 @@ struct PostView: View {
                             .foregroundColor(.red)
                             .padding(.trailing, 8)
                     }
+                    .buttonStyle(.plain)
                 }
             }
                 
