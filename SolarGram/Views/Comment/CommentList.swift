@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CommentList: View {
     
-//        @EnvironmentObject var viewModel: ViewModel
+        @EnvironmentObject var viewModel: ViewModel
     
     var comments: [Comment]
     
@@ -31,6 +31,6 @@ struct CommentList_Previews: PreviewProvider {
         let comments = PostsManager.sampleData.first!.comments
         
         CommentList(comments: comments)
-//            .environmentObject(ViewModel())
+            .environmentObject(ViewModel())
     }
 }

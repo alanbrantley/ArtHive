@@ -15,11 +15,11 @@ struct CommentView: View {
     
     var body: some View {
         HStack{
-            Image(comment.user)
+            Image(viewModel.currentUser?.userImage ?? "default")
                 .resizable()
                 .clipShape(Circle())
                 .frame(width: 32, height: 32)
-            Text(comment.user)
+            Text(viewModel.currentUser?.fullName ?? "Unknown User")
                 .font(.headline)
             Text(comment.content)
             Spacer()

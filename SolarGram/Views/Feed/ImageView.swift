@@ -31,7 +31,7 @@ struct ImageView: View {
             if let userImageName = viewModel.currentUser?.userImage {
                 return UIImage(named: userImageName)
             } else {
-                return nil
+                return UIImage(named: "default")
             }
         default:
             return nil

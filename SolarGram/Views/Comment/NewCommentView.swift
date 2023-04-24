@@ -28,32 +28,33 @@ struct NewCommentView: View {
 //    }
     
     var body: some View {
-            VStack {
-                HStack{
-                    
-                    ImageView(aspect: 1.0, post: post, imageType: "alan")
-                        .clipShape(Circle())
-                        .frame(width: 30, height: 30)
-                    HStack {
-                        TextField("Add a Comment", text: $commentText)
-                            .overlay(RoundedRectangle(cornerRadius: 5)
-                            .stroke(Color(.black), lineWidth: 0.2))
-                        Button {
-                            if commentText != "" {
-                                viewModel.addComment(commentText: commentText, for: post.id)
-                                commentText = ""
-                            }
-                            else {
-                                //do nothing
-                            }
-                        } label: {
-                            Text("Post")
-                                .foregroundColor(Color(.gray))
+        VStack {
+            HStack{
+                
+                ImageView(aspect: 1.0, post: post, imageType: "userImage")
+                       .clipShape(Circle())
+                       .frame(width: 30, height: 30)
+                
+                HStack {
+                    TextField("Add a Comment", text: $commentText)
+                        .overlay(RoundedRectangle(cornerRadius: 5)
+                        .stroke(Color(.black), lineWidth: 0.2))
+                    Button {
+                        if commentText != "" {
+                            viewModel.addComment(commentText: commentText, for: post.id)
+                            commentText = ""
                         }
-                        .padding(.trailing, 10)
-                        .buttonStyle(.plain)
-//                        emojiText("❤️")
-//                        emojiText("👍")
+                        else {
+                            //do nothing
+                        }
+                    } label: {
+                        Text("Post")
+                            .foregroundColor(Color(.gray))
+                    }
+                    .padding(.trailing, 10)
+                    .buttonStyle(.plain)
+    //                        emojiText("❤️")
+    //                        emojiText("👍")
                         
                 }
             }
