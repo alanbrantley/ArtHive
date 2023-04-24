@@ -13,7 +13,7 @@ struct PostsManager {
     
     // The feed of posts
     var feed: [Post] = [
-        Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "main", comments: [Comment(user: "alan", content: "test 1"), Comment(user: "alan", content: "test 2")]),
+        Post(photoID: UIImage(named: "photo1"), description: "Biodome", author: "Alan", userPhotoID:  "main", comments: []),
         Post(photoID: UIImage(named: "photo2"), description: "Home", author: "Jasmine", userPhotoID: "jasmine", comments: []),
         Post(photoID: UIImage(named: "photo3"), description: "Control", author:  "Samantha", userPhotoID: "samantha", comments: []),
         Post(photoID: UIImage(named: "photo4"), description: "Citywalk", author:  "Alan", userPhotoID:  "main", comments: []),
