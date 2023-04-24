@@ -7,6 +7,8 @@
 import SwiftUI
 
 struct AddPost: View {
+    
+    @Environment(\.colorScheme) var colorScheme
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var viewModel: ViewModel
     @State var showCameraPicker = false
@@ -21,8 +23,8 @@ struct AddPost: View {
                 showCameraPicker.toggle()
             }
             .padding()
-            .background(Color.black)
-            .foregroundColor(Color.white)
+            .background(colorScheme == .light ? .black : .white)
+            .foregroundColor(colorScheme == .light ? .white : .black)
             .cornerRadius(40)
             
             //The button for adding a picture from the album
@@ -31,8 +33,8 @@ struct AddPost: View {
                 showImagePicker.toggle()
             }
             .padding()
-            .background(Color.black)
-            .foregroundColor(Color.white)
+            .background(colorScheme == .light ? .black : .white)
+            .foregroundColor(colorScheme == .light ? .white : .black)
             .cornerRadius(40)
             
         }

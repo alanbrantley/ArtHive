@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewPostView: View {
     @Environment(\.dismiss) var dismiss
-
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var viewModel: ViewModel
     @State var description: String = ""
     @State var price: String = ""
@@ -63,8 +63,8 @@ struct NewPostView: View {
                 
             }
             .padding()
-            .background(Color.black)
-            .foregroundColor(Color.white)
+            .background(colorScheme == .light ? .black : .white)
+            .foregroundColor(colorScheme == .light ? .white : .black)
             .cornerRadius(40)
             
         }
