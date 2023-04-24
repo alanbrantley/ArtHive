@@ -14,7 +14,7 @@ class ViewModel: ObservableObject {
     @Published var currentUser: User? = nil
     
     private var registeredUsers: [User] = [
-        User(fullName: "Alan", username: "alan", email: "user@solargram.com", password: "1234", isLoggedIn: false, userImage: "alan")
+        User(fullName: "Alisa", username: "Alisa", email: "user@solargram.com", password: "1234", isLoggedIn: false, userImage: "main")
     ]
     
     // MARK - Variable linking to the model
