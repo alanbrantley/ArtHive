@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CommentView: View {
     
-    var comment: Comment
+    // Use @State property wrapper to make comment mutable.
+    @State var comment: Comment
     
     @EnvironmentObject var viewModel: ViewModel
     
@@ -21,11 +22,20 @@ struct CommentView: View {
                 .frame(width: 32, height: 32)
             Text(viewModel.currentUser?.fullName ?? "Unknown User")
                 .font(.headline)
+            
+            // Display the comment's content.
             Text(comment.content)
             Spacer()
-            Image(systemName: "heart")
-                .foregroundColor(.primary)
+            
+            // Change the icon's color based on whether the comment is liked or not.
+            Image(systemName: comment.isLiked ? "heart.fill" : "heart")
+                .foregroundColor(comment.isLiked ? .red : .primary)
                 .padding(.trailing, 4)
+                .gesture(TapGesture()
+                    .onEnded {
+                        comment.isLiked.toggle()
+                    }
+                )
         }
         .padding(.leading, 4)
         .padding(.trailing, 4)
@@ -36,8 +46,10 @@ struct CommentView: View {
 struct CommentView_Previews: PreviewProvider {
     static var previews: some View {
         
+        // Create a test comment.
         let test = Comment(user: "alan", content: "My First Comment is the longest possible comment in the world")
         
+        // Preview the CommentView with the test comment and ViewModel shared instance.
         CommentView(comment: test)
             .environmentObject(ViewModel())
     }

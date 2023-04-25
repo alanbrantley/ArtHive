@@ -110,6 +110,7 @@ struct Post: Identifiable, Hashable {
         
         var content: String
         
+        // Declare a property named `isLiked` of type `Bool`, with a default value of `false`
         var isLiked: Bool = false
         
     }
