@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AppWordMark: View {
     var body: some View {
-        Text("SolarGram")
+        Text("ArtHive")
             .font(.largeTitle)
     }
 }
